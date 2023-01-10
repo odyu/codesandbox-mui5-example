@@ -1,0 +1,62 @@
+{
+  "name": "mui5",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "main": "src/index.tsx",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "postinstall": "sort-package-json '**/package.json' '!**/node_modules/**/package.json'",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "simple-import-sort",
+      "sort-keys-fix",
+      "typescript-enum",
+      "typescript-sort-keys"
+    ],
+    "extends": ["react-app", "plugin:typescript-enum/babel"],
+    "rules": {
+      "react-hooks/exhaustive-deps": [
+        "error",
+        {
+          "enableDangerousAutofixThisMayCauseInfiniteLoops": true
+        }
+      ],
+      "react/jsx-sort-props": "warn",
+      "simple-import-sort/exports": "warn",
+      "simple-import-sort/imports": "warn",
+      "sort-keys-fix/sort-keys-fix": "warn"
+    }
+  },
+  "dependencies": {
+    "@emotion/react": "11.10.5",
+    "@emotion/styled": "11.10.5",
+    "@fontsource/roboto": "4.5.8",
+    "@hookform/resolvers": "2.9.10",
+    "@mui/icons-material": "5.11.0",
+    "@mui/material": "5.11.2",
+    "@mui/x-date-pickers": "5.0.12",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-simple-import-sort": "8.0.0",
+    "eslint-plugin-sort-keys-fix": "1.1.2",
+    "pokeapi-typescript": "2.1.0",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
+    "react-hook-form": "7.41.1",
+    "react-router-dom": "6.6.1",
+    "react-scripts": "4.0.3",
+    "sort-package-json": "2.1.0",
+    "typescript": "4.9.4",
+    "yup": "0.32.11"
+  },
+  "devDependencies": {
+    "@types/react": "18.0.25",
+    "@types/react-dom": "18.0.9"
+  },
+  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
+}
