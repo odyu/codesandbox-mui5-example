@@ -1,44 +1,48 @@
-import { FC, useCallback } from "react";
-import { RouteComponentProps } from "react-router-dom";
+import { yupResolver } from "@hookform/resolvers/yup";
+import CloseIcon from "@mui/icons-material/Close";
 import {
   Box,
   Button,
+  ButtonGroup,
   Card,
   CardContent,
   CardHeader,
-  IconButton,
-  TextField,
   FormControl,
-  FormLabel,
-  RadioGroup,
   FormControlLabel,
-  Radio,
-  ButtonGroup,
   FormHelperText,
-  Stack
+  FormLabel,
+  IconButton,
+  Radio,
+  RadioGroup,
+  Stack,
+  TextField,
 } from "@mui/material";
+import { FC, useCallback } from "react";
+import { Controller, useFieldArray, useForm } from "react-hook-form";
+
+import { RenderCount } from "../components/RenderCount";
 import { initialDeck, STATUSES, toStatusName } from "../models/Deck";
 import {
   createdDeckList,
   DeckList,
   initialDeckList,
-  validationDeckListSchema
+  validationDeckListSchema,
 } from "../models/DeckList";
-import { RenderCount } from "../components/RenderCount";
-import { useFieldArray, Controller, useForm } from "react-hook-form";
-import CloseIcon from "@mui/icons-material/Close";
-import { yupResolver } from "@hookform/resolvers/yup";
 
-export const ReactHookForm2Page: FC<RouteComponentProps<{}>> = () => {
+export const ReactHookForm2Page: FC = () => {
   const { control, handleSubmit, reset } = useForm<DeckList>({
     defaultValues: initialDeckList,
+    mode: "all",
     resolver: yupResolver(validationDeckListSchema),
-    mode: "all"
   });
 
-  const { fields: decks, append, remove } = useFieldArray({
+  const {
+    fields: decks,
+    append,
+    remove,
+  } = useFieldArray({
     control,
-    name: "decks"
+    name: "decks",
   });
 
   const appendDeck = useCallback(() => append(initialDeck), [append]);
@@ -49,25 +53,25 @@ export const ReactHookForm2Page: FC<RouteComponentProps<{}>> = () => {
     (count: number) => () =>
       reset({
         ...createdDeckList,
-        decks: createdDeckList.decks.slice(count)
+        decks: createdDeckList.decks.slice(count),
       }),
     [reset]
   );
 
   return (
     <Box sx={{ width: "100%" }}>
-      <Stack direction="row" spacing={2} alignItems="center">
+      <Stack alignItems="center" direction="row" spacing={2}>
         <RenderCount />
 
-        <Button variant="outlined" size="large" onClick={loadDeckList(10)}>
+        <Button onClick={loadDeckList(10)} size="large" variant="outlined">
           デッキ 10 読込
         </Button>
 
-        <Button variant="outlined" size="large" onClick={loadDeckList(100)}>
+        <Button onClick={loadDeckList(100)} size="large" variant="outlined">
           デッキ 100 読込
         </Button>
 
-        <Button variant="outlined" size="large" onClick={loadDeckList(500)}>
+        <Button onClick={loadDeckList(500)} size="large" variant="outlined">
           デッキ 500 読込
         </Button>
       </Stack>
@@ -75,26 +79,26 @@ export const ReactHookForm2Page: FC<RouteComponentProps<{}>> = () => {
       <form onSubmit={handleSubmit(console.log)}>
         <Box sx={{ mt: 4 }}>
           <Controller
-            name="name"
             control={control}
+            name="name"
             render={({
               field: { value, onChange, onBlur, ref },
-              fieldState: { invalid, error }
+              fieldState: { invalid, error },
             }) => (
               <TextField
-                value={value || ""}
-                onChange={onChange}
-                label="名前"
                 error={invalid}
-                onBlur={onBlur}
                 helperText={error?.message}
                 inputRef={ref}
+                label="名前"
+                onBlur={onBlur}
+                onChange={onChange}
+                value={value || ""}
               />
             )}
           />
         </Box>
 
-        <ButtonGroup variant="contained" size="large" fullWidth sx={{ mt: 4 }}>
+        <ButtonGroup fullWidth size="large" sx={{ mt: 4 }} variant="contained">
           <Button onClick={appendDeck}>デッキ追加</Button>
           <Button onClick={resetDeckList}>リセット</Button>
           <Button type="submit">サブミット</Button>
@@ -104,7 +108,7 @@ export const ReactHookForm2Page: FC<RouteComponentProps<{}>> = () => {
           const deckTitle = `デッキ ${index}`;
 
           return (
-            <Box sx={{ mt: 4 }} key={index}>
+            <Box key={index} sx={{ mt: 4 }}>
               <Card>
                 <CardHeader
                   action={
@@ -122,78 +126,78 @@ export const ReactHookForm2Page: FC<RouteComponentProps<{}>> = () => {
 
                   <Box sx={{ mt: 2 }}>
                     <Controller
-                      name={`decks.${index}.name`}
                       control={control}
                       defaultValue={deck.name}
+                      name={`decks.${index}.name`}
                       render={({
                         field: { value, onChange, onBlur, ref },
-                        fieldState: { invalid, error }
+                        fieldState: { invalid, error },
                       }) => (
                         <TextField
-                          value={value || ""}
-                          onChange={onChange}
-                          label="デッキ名"
                           error={invalid}
-                          onBlur={onBlur}
                           helperText={error?.message}
                           inputRef={ref}
+                          label="デッキ名"
+                          onBlur={onBlur}
+                          onChange={onChange}
+                          value={value || ""}
                         />
                       )}
                     />
                   </Box>
 
                   <Controller
-                    name={`decks.${index}.description`}
                     control={control}
                     defaultValue={deck.description}
+                    name={`decks.${index}.description`}
                     render={({
                       field: { value, onChange, onBlur, ref },
-                      fieldState: { invalid, error }
+                      fieldState: { invalid, error },
                     }) => (
                       <TextField
-                        value={value || ""}
-                        onChange={onChange}
-                        label="デッキ説明"
                         error={invalid}
-                        multiline
-                        rows={4}
-                        onBlur={onBlur}
                         helperText={error?.message}
                         inputRef={ref}
+                        label="デッキ説明"
+                        multiline
+                        onBlur={onBlur}
+                        onChange={onChange}
+                        rows={4}
                         sx={{ mt: 2 }}
+                        value={value || ""}
                       />
                     )}
                   />
 
                   <Controller
-                    name={`decks.${index}.status`}
                     control={control}
                     defaultValue={deck.status}
+                    name={`decks.${index}.status`}
                     render={({
                       field: { value, onChange, onBlur, ref },
-                      fieldState: { invalid, error }
+                      fieldState: { invalid, error },
                     }) => (
-                      <FormControl sx={{ mt: 2 }} error={invalid}>
+                      <FormControl error={invalid} sx={{ mt: 2 }}>
                         <FormLabel
-                          id={`decks-${index}-status-label`}
                           error={invalid}
+                          id={`decks-${index}-status-label`}
                         >
                           ステータス
                         </FormLabel>
                         <RadioGroup
-                          row
                           aria-labelledby={`decks-${index}-status-label`}
                           name={`decks.${index}.status`}
-                          value={value || ""}
-                          onChange={onChange}
                           onBlur={onBlur}
+                          onChange={onChange}
+                          row
+                          value={value || ""}
                         >
                           {STATUSES.map((status) => (
                             <FormControlLabel
-                              key={status}
-                              value={status}
                               control={<Radio />}
+                              key={status}
                               label={toStatusName(status)}
+                              value={status}
                             />
                           ))}
                         </RadioGroup>

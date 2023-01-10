@@ -1,114 +1,109 @@
-import { FC, useCallback } from "react";
-import { RouteComponentProps } from "react-router-dom";
+import { yupResolver } from "@hookform/resolvers/yup";
+import CloseIcon from "@mui/icons-material/Close";
 import {
   Box,
   Button,
+  ButtonGroup,
   Card,
   CardContent,
   CardHeader,
-  IconButton,
-  TextField,
   FormControl,
-  FormLabel,
-  RadioGroup,
   FormControlLabel,
-  Radio,
-  ButtonGroup,
   FormHelperText,
-  Stack
+  FormLabel,
+  IconButton,
+  Radio,
+  RadioGroup,
+  Stack,
+  TextField,
 } from "@mui/material";
+import PokeAPI from "pokeapi-typescript";
+import { FC, useCallback, useState } from "react";
+import { Controller, useFieldArray, useForm } from "react-hook-form";
+
 import { RenderCount } from "../components/RenderCount";
+import { Pokemons, usePokemons } from "../hooks/usePokemons";
 import { initialDeck, STATUSES, toStatusName } from "../models/Deck";
 import {
   createdDeckList,
   DeckList,
   initialDeckList,
-  validationDeckListSchema
+  validationDeckListSchema,
 } from "../models/DeckList";
 
-import { useFieldArray, Controller, useForm } from "react-hook-form";
-import CloseIcon from "@mui/icons-material/Close";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { usePokemons } from "../hooks/usePokemons";
+type FormValues = { pokemons: Pokemons };
 
-export const ReactHookFormPage: FC<RouteComponentProps<{}>> = () => {
-  const { control, handleSubmit, reset } = useForm<DeckList>({
-    defaultValues: initialDeckList,
+const defaultValues: FormValues = { pokemons: [] };
+
+export const ReactHookFormPage: FC = () => {
+  const [loadCount, setLoadCount] = useState(0);
+
+  const pokemons = usePokemons({ count: loadCount });
+
+  const { control, handleSubmit, reset } = useForm<FormValues>({
+    defaultValues,
+    mode: "all",
     resolver: yupResolver(validationDeckListSchema),
-    mode: "all"
   });
 
-  const { fields: decks, append, remove } = useFieldArray({
+  const { fields, append, remove } = useFieldArray({
     control,
-    name: "decks"
+    name: "pokemons",
   });
 
-  const appendDeck = useCallback(() => append(initialDeck), [append]);
+  const appendDeck = useCallback(() => {
+    PokeAPI.Pokemon.fetch(25).then((newPokemon) => {
+      append({
+        name: newPokemon.name,
+        url: "",
+      });
+    });
+  }, [append]);
 
-  const resetDeckList = useCallback(() => reset(initialDeckList), [reset]);
-
-  const loadDeckList = useCallback(
-    (count: number) => () =>
-      reset({
-        ...createdDeckList,
-        decks: createdDeckList.decks.slice(count)
-      }),
-    [reset]
-  );
-
-  const pokemons = usePokemons({ count: 10 });
+  const resetDeckList = useCallback(() => reset(defaultValues), [reset]);
 
   return (
     <Box sx={{ width: "100%" }}>
-      <Stack direction="row" spacing={2} alignItems="center">
+      <Stack alignItems="center" direction="row" spacing={2}>
         <RenderCount />
 
-        <Button variant="outlined" size="large" onClick={loadDeckList(10)}>
+        <Button
+          onClick={() => setLoadCount(10)}
+          size="large"
+          variant="outlined"
+        >
           デッキ 10 読込
         </Button>
 
-        <Button variant="outlined" size="large" onClick={loadDeckList(100)}>
+        <Button
+          onClick={() => setLoadCount(100)}
+          size="large"
+          variant="outlined"
+        >
           デッキ 100 読込
         </Button>
 
-        <Button variant="outlined" size="large" onClick={loadDeckList(500)}>
+        <Button
+          onClick={() => setLoadCount(500)}
+          size="large"
+          variant="outlined"
+        >
           デッキ 500 読込
         </Button>
       </Stack>
 
       <form onSubmit={handleSubmit(console.log)}>
-        <Box sx={{ mt: 4 }}>
-          <Controller
-            name="name"
-            control={control}
-            render={({
-              field: { value, onChange, onBlur, ref },
-              fieldState: { invalid, error }
-            }) => (
-              <TextField
-                value={value || ""}
-                onChange={onChange}
-                label="名前"
-                error={invalid}
-                onBlur={onBlur}
-                helperText={error?.message}
-                inputRef={ref}
-              />
-            )}
-          />
-        </Box>
-
-        <ButtonGroup variant="contained" size="large" fullWidth sx={{ mt: 4 }}>
+        <ButtonGroup fullWidth size="large" sx={{ mt: 4 }} variant="contained">
           <Button onClick={appendDeck}>デッキ追加</Button>
           <Button onClick={resetDeckList}>リセット</Button>
           <Button type="submit">サブミット</Button>
         </ButtonGroup>
 
-        {decks.map((deck, index) => {
-          const deckTitle = `デッキ ${index}`;
+        {fields.map((field, index) => {
+          const deckTitle = `ポケモン ${index}`;
 
           return (
-            <Box sx={{ mt: 4 }} key={index}>
+            <Box key={index} sx={{ mt: 4 }}>
               <Card>
                 <CardHeader
                   action={
@@ -126,85 +121,25 @@ export const ReactHookFormPage: FC<RouteComponentProps<{}>> = () => {
 
                   <Box sx={{ mt: 2 }}>
                     <Controller
-                      name={`decks.${index}.name`}
                       control={control}
-                      defaultValue={deck.name}
+                      defaultValue={field.name}
+                      name={`pokemons.${index}.name`}
                       render={({
                         field: { value, onChange, onBlur, ref },
-                        fieldState: { invalid, error }
+                        fieldState: { invalid, error },
                       }) => (
                         <TextField
-                          value={value || ""}
-                          onChange={onChange}
-                          label="デッキ名"
                           error={invalid}
-                          onBlur={onBlur}
                           helperText={error?.message}
                           inputRef={ref}
+                          label="ポケモン名"
+                          onBlur={onBlur}
+                          onChange={onChange}
+                          value={value || ""}
                         />
                       )}
                     />
                   </Box>
-
-                  <Controller
-                    name={`decks.${index}.description`}
-                    control={control}
-                    defaultValue={deck.description}
-                    render={({
-                      field: { value, onChange, onBlur, ref },
-                      fieldState: { invalid, error }
-                    }) => (
-                      <TextField
-                        value={value || ""}
-                        onChange={onChange}
-                        label="デッキ説明"
-                        error={invalid}
-                        multiline
-                        rows={4}
-                        onBlur={onBlur}
-                        helperText={error?.message}
-                        inputRef={ref}
-                        sx={{ mt: 2 }}
-                      />
-                    )}
-                  />
-
-                  <Controller
-                    name={`decks.${index}.status`}
-                    control={control}
-                    defaultValue={deck.status}
-                    render={({
-                      field: { value, onChange, onBlur, ref },
-                      fieldState: { invalid, error }
-                    }) => (
-                      <FormControl sx={{ mt: 2 }} error={invalid}>
-                        <FormLabel
-                          id={`decks-${index}-status-label`}
-                          error={invalid}
-                        >
-                          ステータス
-                        </FormLabel>
-                        <RadioGroup
-                          row
-                          aria-labelledby={`decks-${index}-status-label`}
-                          name={`decks.${index}.status`}
-                          value={value || ""}
-                          onBlur={onBlur}
-                          onChange={onChange}
-                        >
-                          {STATUSES.map((status) => (
-                            <FormControlLabel
-                              key={status}
-                              value={status}
-                              control={<Radio />}
-                              label={toStatusName(status)}
-                            />
-                          ))}
-                        </RadioGroup>
-                        <FormHelperText>{error?.message}</FormHelperText>
-                      </FormControl>
-                    )}
-                  />
                 </CardContent>
               </Card>
             </Box>

@@ -1,10 +1,10 @@
-import { FC } from "react";
-import { useOutlet } from "react-router-dom";
+import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import AppBar from "@mui/material/AppBar";
+import { FC } from "react";
+import { useOutlet } from "react-router-dom";
 
 export const AppLayout: FC = () => {
   const outlet = useOutlet();

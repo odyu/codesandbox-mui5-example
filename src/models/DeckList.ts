@@ -1,5 +1,6 @@
-import { Deck, validationDeckSchema, initialDeck } from "./Deck";
 import * as Yup from "yup";
+
+import { Deck, initialDeck,validationDeckSchema } from "./Deck";
 
 export type DeckList = {
   name: string;
@@ -7,23 +8,22 @@ export type DeckList = {
 };
 
 export const initialDeckList: DeckList = {
+  decks: [],
   name: "",
-  decks: []
 };
 
-export const validationDeckListSchema: Yup.SchemaOf<DeckList> = Yup.object().shape(
-  {
-    name: Yup.string().required("名前を入力してください"),
+export const validationDeckListSchema: Yup.SchemaOf<DeckList> =
+  Yup.object().shape({
     decks: Yup.array()
       .of(validationDeckSchema)
-      .required("デッキを入力してください")
-  }
-);
+      .required("デッキを入力してください"),
+    name: Yup.string().required("名前を入力してください"),
+  });
 
 export const createdDeckList: DeckList = {
-  name: "",
   decks: [...Array(10)].map((_, index) => ({
     ...initialDeck,
-    name: `デッキ ${index}`
-  }))
+    name: `デッキ ${index}`,
+  })),
+  name: "",
 };

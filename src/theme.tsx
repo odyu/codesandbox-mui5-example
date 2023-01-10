@@ -1,23 +1,25 @@
-import { LinkBehavior } from "./components/LinkBehavior";
+import { LinkProps as MuiLinkProps } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
+
+import { LinkBehavior } from "./components/LinkBehavior";
 
 export const theme = createTheme({
   components: {
-    MuiLink: {
-      defaultProps: {
-        component: LinkBehavior
-      }
-    },
     MuiButtonBase: {
       defaultProps: {
-        LinkComponent: LinkBehavior
-      }
+        LinkComponent: LinkBehavior,
+      },
+    },
+    MuiLink: {
+      defaultProps: {
+        component: LinkBehavior,
+      } as MuiLinkProps,
     },
     MuiTextField: {
       defaultProps: {
         InputLabelProps: { shrink: true },
-        fullWidth: true
-      }
-    }
-  }
+        fullWidth: true,
+      },
+    },
+  },
 });

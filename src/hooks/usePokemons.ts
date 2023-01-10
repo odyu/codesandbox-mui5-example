@@ -1,11 +1,16 @@
-import PokeAPI, { IPokemon, INamedApiResourceList } from "pokeapi-typescript";
+import PokeAPI, {
+  INamedApiResource,
+  INamedApiResourceList,
+  IPokemon,
+} from "pokeapi-typescript";
 import { useEffect, useState } from "react";
 
 type UsePokemonsProps = {
   count?: number;
 };
 
-export const usePokemons = ({ count = 10 }: UsePokemonsProps) => {
+export type Pokemons = Array<INamedApiResource<IPokemon>>;
+export const usePokemons = ({ count = 10 }: UsePokemonsProps): Pokemons => {
   const [pokemons, setPokemons] = useState<
     INamedApiResourceList<IPokemon> | undefined
   >();
@@ -14,7 +19,7 @@ export const usePokemons = ({ count = 10 }: UsePokemonsProps) => {
     PokeAPI.Pokemon.list(count, 0).then((newPokemons) =>
       setPokemons(newPokemons)
     );
-  }, []);
+  }, [count]);
 
-  return pokemons?.results;
+  return pokemons?.results || [];
 };

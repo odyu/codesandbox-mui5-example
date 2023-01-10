@@ -3,7 +3,7 @@ import * as Yup from "yup";
 
 export const STATUSES = ["enabled", "disabled", "drafted"];
 
-export type Status = typeof STATUSES[number];
+export type Status = (typeof STATUSES)[number];
 
 export const toStatusName = (status: Status): string => {
   switch (status) {
@@ -26,20 +26,20 @@ export type Deck = {
 };
 
 export const initialDeck: Deck = {
-  name: "",
   description: "",
+  name: "",
+  pokemonIds: [],
   status: "",
-  pokemonIds: []
 };
 
 export const validationDeckSchema: Yup.SchemaOf<Deck> = Yup.object().shape({
-  name: Yup.string().required("名前を入力してください"),
   description: Yup.string().required("説明を入力してください"),
-  status: Yup.mixed()
-    .oneOf(STATUSES, "ステータスを選択してください")
-    .required("ステータスを選択してください"),
+  name: Yup.string().required("名前を入力してください"),
   pokemonIds: Yup.array()
     .of(Yup.number().required("ポケモンを選択してください"))
     .min(1, "ポケモンを１つ以上選択してください")
-    .required("ポケモンを選択してください")
+    .required("ポケモンを選択してください"),
+  status: Yup.mixed()
+    .oneOf(STATUSES, "ステータスを選択してください")
+    .required("ステータスを選択してください"),
 });

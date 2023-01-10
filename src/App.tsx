@@ -1,18 +1,19 @@
-import { Routes, Route } from "react-router-dom";
-import { AppLayout } from "./layouts/AppLayout";
-import { TopPage } from "./pages/TopPage";
-import { FormikPage } from "./pages/FormikPage";
-import { ReactHookFormPage } from "./pages/ReactHookFormPage";
-import { ReactHookForm2Page } from "./pages/ReactHookForm2Page";
 import React, { FC } from "react";
+import { Route,Routes } from "react-router-dom";
+
+import { AppLayout } from "./layouts/AppLayout";
+import { FormikPage } from "./pages/FormikPage";
+import { ReactHookForm2Page } from "./pages/ReactHookForm2Page";
+import { ReactHookFormPage } from "./pages/ReactHookFormPage";
+import { TopPage } from "./pages/TopPage";
 
 export const App: FC = () => (
   <Routes>
     <Route element={<AppLayout />}>
-      <Route path="/" element={<TopPage />} />
-      <Route path="/formik" element={<FormikPage />} />
-      <Route path="/react-hook-form" element={<ReactHookFormPage />} />
-      <Route path="/react-hook-form-2" element={<ReactHookForm2Page />} />
+      <Route element={<TopPage />} path="/" />
+      <Route element={<FormikPage />} path="/formik" />
+      <Route element={<ReactHookFormPage />} path="/react-hook-form" />
+      <Route element={<ReactHookForm2Page />} path="/react-hook-form-2" />
     </Route>
   </Routes>
 );

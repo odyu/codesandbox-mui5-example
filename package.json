@@ -5,21 +5,31 @@
   "keywords": [],
   "main": "src/index.tsx",
   "scripts": {
-    "start": "react-scripts start",
+    "__lint": "eslint --ext .js,.jsx,.ts,.tsx --cache",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "format": "prettier . --write --loglevel error",
     "postinstall": "sort-package-json '**/package.json' '!**/node_modules/**/package.json'",
-    "eject": "react-scripts eject"
+    "lint": "yarn __lint .",
+    "lintfix": "yarn __lint --fix .",
+    "start": "react-scripts start",
+    "test": "react-scripts test --env=jsdom"
   },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
     "plugins": [
       "simple-import-sort",
-      "sort-keys-fix",
-      "typescript-enum",
-      "typescript-sort-keys"
+      "sort-keys-fix"
     ],
-    "extends": ["react-app", "plugin:typescript-enum/babel"],
+    "extends": [
+      "react-app"
+    ],
     "rules": {
       "react-hooks/exhaustive-deps": [
         "error",
@@ -34,29 +44,39 @@
     }
   },
   "dependencies": {
-    "@emotion/react": "11.10.5",
-    "@emotion/styled": "11.10.5",
-    "@fontsource/roboto": "4.5.8",
-    "@hookform/resolvers": "2.9.10",
-    "@mui/icons-material": "5.11.0",
-    "@mui/material": "5.11.2",
-    "@mui/x-date-pickers": "5.0.12",
-    "eslint-plugin-react-hooks": "4.6.0",
-    "eslint-plugin-simple-import-sort": "8.0.0",
-    "eslint-plugin-sort-keys-fix": "1.1.2",
-    "pokeapi-typescript": "2.1.0",
-    "react": "18.0.0",
-    "react-dom": "18.0.0",
-    "react-hook-form": "7.41.1",
-    "react-router-dom": "6.6.1",
-    "react-scripts": "4.0.3",
-    "sort-package-json": "2.1.0",
-    "typescript": "4.9.4",
-    "yup": "0.32.11"
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "@fontsource/roboto": "^4",
+    "@hookform/resolvers": "^2",
+    "@mui/icons-material": "^5",
+    "@mui/material": "^5",
+    "@mui/x-date-pickers": "^5",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.11",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.10",
+    "pokeapi-typescript": "^2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7",
+    "react-router-dom": "^6",
+    "react-scripts": "5.0.1",
+    "typescript": "^4.9.4",
+    "web-vitals": "^2.1.4",
+    "yup": "^0"
   },
   "devDependencies": {
-    "@types/react": "18.0.25",
-    "@types/react-dom": "18.0.9"
-  },
-  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
+    "@typescript-eslint/eslint-plugin": "^5",
+    "@typescript-eslint/parser": "^5",
+    "eslint": "^8",
+    "eslint-config-react-app": "^7",
+    "eslint-plugin-react-hooks": "^4",
+    "eslint-plugin-simple-import-sort": "^8",
+    "eslint-plugin-sort-keys-fix": "^1",
+    "prettier": "^2",
+    "sort-package-json": "2.1.0"
+  }
 }
