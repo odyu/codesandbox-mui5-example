@@ -2,7 +2,6 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import { FC } from "react";
 import { useOutlet } from "react-router-dom";
 
@@ -13,14 +12,8 @@ export const AppLayout: FC = () => {
     <Box sx={{ display: "flex", width: "100vw" }}>
       <AppBar component="nav">
         <Toolbar sx={{ gridGap: "4px" }}>
-          <Button color="inherit" href="/">
+          <Button color="inherit" fullWidth={true} href="/">
             Top
-          </Button>
-          <Button color="inherit" href="/react-hook-form">
-            ReactHookForm
-          </Button>
-          <Button color="inherit" href="/formik">
-            Formik
           </Button>
         </Toolbar>
       </AppBar>

@@ -1,25 +1,19 @@
-import PokeAPI, {
-  INamedApiResource,
-  INamedApiResourceList,
-  IPokemon,
-} from "pokeapi-typescript";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
-type UsePokemonsProps = {
-  count?: number;
-};
+import { Pokemon, pokemonData } from "../models/Pokemon";
+import { sleep } from "../utils/sleep";
 
-export type Pokemons = Array<INamedApiResource<IPokemon>>;
-export const usePokemons = ({ count = 10 }: UsePokemonsProps): Pokemons => {
-  const [pokemons, setPokemons] = useState<
-    INamedApiResourceList<IPokemon> | undefined
-  >();
+export const usePokemons = (): Pokemon[] => {
+  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+
+  const load = useCallback(async () => {
+    await sleep(1000);
+    setPokemons(pokemonData);
+  }, []);
 
   useEffect(() => {
-    PokeAPI.Pokemon.list(count, 0).then((newPokemons) =>
-      setPokemons(newPokemons)
-    );
-  }, [count]);
+    load();
+  }, [load]);
 
-  return pokemons?.results || [];
+  return pokemons;
 };

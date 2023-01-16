@@ -3,7 +3,16 @@ import { FC } from "react";
 
 export const TopPage: FC = () => (
   <div>
-    <Button href="/react-hook-form">ReactHookForm</Button>
-    <Button href="/formik">Formik</Button>
+    <Button fullWidth={true} href="/react-hook-form/empty">
+      ReactHookFrom EmptyPage
+    </Button>
+
+    <Button fullWidth={true} href="/react-hook-form/loaded">
+      ReactHookFrom LoadedPage
+    </Button>
+
+    <Button fullWidth={true} href="/formik/empty">
+      Formik EmptyPage
+    </Button>
   </div>
 );
