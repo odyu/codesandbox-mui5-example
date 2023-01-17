@@ -1,10 +1,11 @@
 import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
 import CloseIcon from "@mui/icons-material/Close";
-import { Box, Button, Card, CardContent, CardHeader, IconButton, Stack, TextField } from "@mui/material";
+import { Box, Button, Card, CardContent, CardHeader, IconButton, Stack } from "@mui/material";
 import React, { FC } from "react";
-import { Controller, useFieldArray, useForm } from "react-hook-form";
+import { useFieldArray, useForm } from "react-hook-form";
 import * as Yup from "yup";
 
+import { useOnSubmit } from "../../hooks/useOnSubmit";
 import { initialPokemon, Pokemon, validationPokemonSchema } from "../../models/Pokemon";
 import { CircularLoading } from "../CircularLoading";
 import { RenderCount } from "../RenderCount";
@@ -36,6 +37,8 @@ export const PokemonForm: FC<PokemonFormProps> = ({ values = initialValues, load
     name: "pokemons",
   });
 
+  const { onSubmit, isProcessing } = useOnSubmit();
+
   if (loading) {
     return (
       <Box sx={{ width: "100%" }}>
@@ -46,23 +49,28 @@ export const PokemonForm: FC<PokemonFormProps> = ({ values = initialValues, load
 
   return (
     <Box sx={{ width: "100%" }}>
-      <form onSubmit={handleSubmit(console.log)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <Stack alignItems="center" direction="row" spacing={2}>
           <RenderCount />
 
-          <Button onClick={() => append(initialPokemon)} size="large" variant="outlined">
+          <Button disabled={isProcessing} onClick={() => append(initialPokemon)} size="large" variant="outlined">
             新規追加（フォーカスする）
           </Button>
 
-          <Button onClick={() => append(initialPokemon, { shouldFocus: false })} size="large" variant="outlined">
+          <Button
+            disabled={isProcessing}
+            onClick={() => append(initialPokemon, { shouldFocus: false })}
+            size="large"
+            variant="outlined"
+          >
             新規追加（フォーカスしない）
           </Button>
 
-          <Button size="large" type="submit" variant="outlined">
+          <Button disabled={isProcessing} size="large" type="submit" variant="outlined">
             保存する
           </Button>
 
-          <Button onClick={() => reset()} size="large" variant="outlined">
+          <Button disabled={isProcessing} onClick={() => reset()} size="large" variant="outlined">
             リセット
           </Button>
         </Stack>
@@ -82,47 +90,38 @@ export const PokemonForm: FC<PokemonFormProps> = ({ values = initialValues, load
                   subheader={title}
                 />
                 <CardContent>
-                  <RenderCount />
+                  <Stack alignItems="center" flexDirection="row" gap={2} py={1}>
+                    <RenderCount />
 
-                  <InputTextField
-                    control={control}
-                    defaultValue={field.id}
-                    label="ID"
-                    name={`pokemons.${index}.id`}
-                    type="number"
-                  />
+                    <InputTextField control={control} label="ID" name={`pokemons.${index}.id`} type="number" />
+                  </Stack>
 
-                  <InputTextField
-                    control={control}
-                    defaultValue={field.name.japanese}
-                    label="名前（日本語）"
-                    name={`pokemons.${index}.name.japanese`}
-                    type="text"
-                  />
+                  <Stack alignItems="center" flexDirection="row" gap={2} py={1}>
+                    <InputTextField
+                      control={control}
+                      label="名前（日本語）"
+                      name={`pokemons.${index}.name.japanese`}
+                      type="text"
+                    />
+                  </Stack>
 
-                  <InputTextField
-                    control={control}
-                    defaultValue={field.id}
-                    label="攻撃力"
-                    name={`pokemons.${index}.base.attack`}
-                    type="number"
-                  />
+                  <Stack alignItems="center" flexDirection="row" gap={2} py={1}>
+                    <InputTextField
+                      control={control}
+                      label="攻撃力"
+                      name={`pokemons.${index}.base.attack`}
+                      type="number"
+                    />
 
-                  <InputTextField
-                    control={control}
-                    defaultValue={field.id}
-                    label="防御力"
-                    name={`pokemons.${index}.base.defense`}
-                    type="number"
-                  />
+                    <InputTextField
+                      control={control}
+                      label="防御力"
+                      name={`pokemons.${index}.base.defense`}
+                      type="number"
+                    />
 
-                  <InputTextField
-                    control={control}
-                    defaultValue={field.id}
-                    label="HP"
-                    name={`pokemons.${index}.base.hp`}
-                    type="number"
-                  />
+                    <InputTextField control={control} label="HP" name={`pokemons.${index}.base.hp`} type="number" />
+                  </Stack>
                 </CardContent>
               </Card>
             </Box>

@@ -18,7 +18,6 @@ export const theme = createTheme({
     MuiTextField: {
       defaultProps: {
         InputLabelProps: { shrink: true },
-        fullWidth: true,
       },
     },
   },

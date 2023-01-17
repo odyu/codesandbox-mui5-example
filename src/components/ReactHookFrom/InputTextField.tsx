@@ -41,12 +41,10 @@ export const InputTextField = <TextFieldValues extends FieldValues = FieldValues
           }}
           onChange={(event) => {
             field.onChange(event);
-            if (typeof props.onChange === "function") {
-              props.onChange(event);
-            }
+            props.onChange?.(event);
           }}
           onFocus={onFocus}
-          value={field.value}
+          value={field.value || ""}
         />
       )}
     />
