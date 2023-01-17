@@ -1,13 +1,14 @@
 import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
 import CloseIcon from "@mui/icons-material/Close";
 import { Box, Button, Card, CardContent, CardHeader, IconButton, Stack, TextField } from "@mui/material";
-import React, { FC, useMemo } from "react";
+import React, { FC } from "react";
 import { Controller, useFieldArray, useForm } from "react-hook-form";
 import * as Yup from "yup";
 
 import { initialPokemon, Pokemon, validationPokemonSchema } from "../../models/Pokemon";
 import { CircularLoading } from "../CircularLoading";
 import { RenderCount } from "../RenderCount";
+import { InputTextField } from "./InputTextField";
 
 type FormValues = { pokemons: Pokemon[] };
 
@@ -83,93 +84,44 @@ export const PokemonForm: FC<PokemonFormProps> = ({ values = initialValues, load
                 <CardContent>
                   <RenderCount />
 
-                  <Controller
+                  <InputTextField
                     control={control}
                     defaultValue={field.id}
+                    label="ID"
                     name={`pokemons.${index}.id`}
-                    render={({ field: { value, onChange, onBlur, ref }, fieldState: { invalid, error } }) => (
-                      <TextField
-                        error={invalid}
-                        helperText={error?.message}
-                        inputRef={ref}
-                        label="ID"
-                        onBlur={onBlur}
-                        onChange={onChange}
-                        type="number"
-                        value={value}
-                      />
-                    )}
+                    type="number"
                   />
 
-                  <Controller
+                  <InputTextField
                     control={control}
-                    defaultValue={field.id}
+                    defaultValue={field.name.japanese}
+                    label="名前（日本語）"
                     name={`pokemons.${index}.name.japanese`}
-                    render={({ field: { value, onChange, onBlur, ref }, fieldState: { invalid, error } }) => (
-                      <TextField
-                        error={invalid}
-                        helperText={error?.message}
-                        inputRef={ref}
-                        label="名前（日本語）"
-                        onBlur={onBlur}
-                        onChange={onChange}
-                        value={value}
-                      />
-                    )}
+                    type="text"
                   />
 
-                  <Controller
+                  <InputTextField
                     control={control}
                     defaultValue={field.id}
+                    label="攻撃力"
                     name={`pokemons.${index}.base.attack`}
-                    render={({ field: { value, onChange, onBlur, ref }, fieldState: { invalid, error } }) => (
-                      <TextField
-                        error={invalid}
-                        helperText={error?.message}
-                        inputRef={ref}
-                        label="攻撃力"
-                        onBlur={onBlur}
-                        onChange={onChange}
-                        type="number"
-                        value={value}
-                      />
-                    )}
+                    type="number"
                   />
 
-                  <Controller
+                  <InputTextField
                     control={control}
                     defaultValue={field.id}
+                    label="防御力"
                     name={`pokemons.${index}.base.defense`}
-                    render={({ field: { value, onChange, onBlur, ref }, fieldState: { invalid, error } }) => (
-                      <TextField
-                        error={invalid}
-                        helperText={error?.message}
-                        inputRef={ref}
-                        label="防御力"
-                        onBlur={onBlur}
-                        onChange={onChange}
-                        type="number"
-                        value={value}
-                      />
-                    )}
+                    type="number"
                   />
 
-                  <Controller
+                  <InputTextField
                     control={control}
                     defaultValue={field.id}
+                    label="HP"
                     name={`pokemons.${index}.base.hp`}
-                    render={({ field: { value, onChange, onBlur, ref }, fieldState: { invalid, error } }) => (
-                      <TextField
-                        error={invalid}
-                        helperText={error?.message}
-                        inputRef={ref}
-                        label="HP"
-                        onBlur={onBlur}
-                        onChange={onChange}
-                        type="number"
-                        value={value}
-                      />
-                    )}
+                    type="number"
                   />
                 </CardContent>
               </Card>

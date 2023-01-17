@@ -1,5 +1,5 @@
 import { TextField, TextFieldProps } from "@mui/material";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { Control, Controller, FieldValues, Path } from "react-hook-form";
 
 export type InputTextFieldProps<T extends FieldValues = FieldValues> = Omit<TextFieldProps, "name"> & {
@@ -8,8 +8,6 @@ export type InputTextFieldProps<T extends FieldValues = FieldValues> = Omit<Text
 };
 
 export const InputTextField = <TextFieldValues extends FieldValues = FieldValues>({
-  type,
-  required,
   name,
   control,
   helperText,
@@ -17,30 +15,38 @@ export const InputTextField = <TextFieldValues extends FieldValues = FieldValues
 }: InputTextFieldProps<TextFieldValues>): JSX.Element => {
   const [isFocus, setIsFocus] = useState(false);
 
+  const onBlur = useCallback(() => {
+    setIsFocus(false);
+  }, []);
+
+  const onFocus = useCallback(() => {
+    setIsFocus(true);
+  }, []);
+
   return (
     <Controller
       control={control}
       name={name}
-      render={({ field: { value, onChange, onBlur, ref }, fieldState: { error } }) => (
+      render={({ field, fieldState }) => (
         <TextField
           {...props}
-          error={isFocus ? false : !!error}
-          helperText={error?.message || helperText}
-          inputRef={ref}
+          {...field}
+          error={isFocus ? false : !!fieldState.error}
+          helperText={fieldState.error?.message || helperText}
+          inputRef={field.ref}
           name={name}
-          onBlur={onBlur}
+          onBlur={() => {
+            onBlur();
+            field.onBlur();
+          }}
           onChange={(event) => {
-            onChange(event);
+            field.onChange(event);
             if (typeof props.onChange === "function") {
               props.onChange(event);
             }
           }}
-          onFocus={(event) => {
-            setIsFocus(true);
-          }}
-          required={required}
-          type={type}
-          value={value ?? ""}
+          onFocus={onFocus}
+          value={field.value}
         />
       )}
     />
