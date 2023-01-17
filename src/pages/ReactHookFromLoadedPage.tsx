@@ -4,7 +4,7 @@ import { PokemonForm } from "../components/ReactHookFrom/PokemonForm";
 import { usePokemons } from "../hooks/usePokemons";
 
 export const ReactHookFromLoadedPage: FC = () => {
-  const pokemons = usePokemons();
+  const { pokemons, loading } = usePokemons();
 
-  return <PokemonForm values={{ pokemons }} />;
+  return <PokemonForm loading={loading} values={{ pokemons }} />;
 };
