@@ -4,6 +4,7 @@ export type PokemonType = "Grass" | "Poison" | "Fire";
 
 export type Pokemon = {
   id: number;
+  isSupportI18n: boolean;
   name: {
     chinese: string;
     english: string;
@@ -33,6 +34,7 @@ export const initialPokemon: Pokemon = {
     speed: 0,
   },
   id: 0,
+  isSupportI18n: true,
   name: {
     chinese: "",
     english: "",
@@ -55,11 +57,21 @@ export const validationPokemonSchema: Yup.SchemaOf<Pokemon> = Yup.object()
       })
       .required(),
     id: Yup.number().required("IDを入力してください"),
+    isSupportI18n: Yup.number().required("i18n対応を選択してください"),
     name: Yup.object()
       .shape({
-        chinese: Yup.string().required("名前（中国語）を入力してください"),
-        english: Yup.string().required("名前（英語）を入力してください"),
-        french: Yup.string().required("名前（フランス語）を入力してください"),
+        chinese: Yup.string().when("isSupportI18n", {
+          is: true,
+          then: Yup.string().required("名前（中国語）を入力してください"),
+        }),
+        english: Yup.string().when("isSupportI18n", {
+          is: true,
+          then: Yup.string().required("名前（英語）を入力してください"),
+        }),
+        french: Yup.string().when("isSupportI18n", {
+          is: true,
+          then: Yup.string().required("名前（フランス語）を入力してください"),
+        }),
         japanese: Yup.string().required("名前（日本語）を入力してください"),
       })
       .required(),

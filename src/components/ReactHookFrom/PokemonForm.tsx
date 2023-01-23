@@ -10,6 +10,7 @@ import { initialPokemon, Pokemon, validationPokemonSchema } from "../../models/P
 import { CircularLoading } from "../CircularLoading";
 import { RenderCount } from "../RenderCount";
 import { InputTextField } from "./InputTextField";
+import { RadioButtonField } from "./RadioButtonField";
 
 type FormValues = { pokemons: Pokemon[] };
 
@@ -53,7 +54,12 @@ export const PokemonForm: FC<PokemonFormProps> = ({ values = initialValues, load
         <Stack alignItems="center" direction="row" spacing={2}>
           <RenderCount />
 
-          <Button disabled={isProcessing} onClick={() => append(initialPokemon)} size="large" variant="outlined">
+          <Button
+            disabled={isProcessing}
+            onClick={() => append(initialPokemon, { focusIndex: fields.length, shouldFocus: true })}
+            size="large"
+            variant="outlined"
+          >
             新規追加（フォーカスする）
           </Button>
 
@@ -66,12 +72,12 @@ export const PokemonForm: FC<PokemonFormProps> = ({ values = initialValues, load
             新規追加（フォーカスしない）
           </Button>
 
-          <Button disabled={isProcessing} size="large" type="submit" variant="outlined">
-            保存する
-          </Button>
-
           <Button disabled={isProcessing} onClick={() => reset()} size="large" variant="outlined">
             リセット
+          </Button>
+
+          <Button disabled={isProcessing} size="large" type="submit" variant="contained">
+            保存する
           </Button>
         </Stack>
 
@@ -94,6 +100,23 @@ export const PokemonForm: FC<PokemonFormProps> = ({ values = initialValues, load
                     <RenderCount />
 
                     <InputTextField control={control} label="ID" name={`pokemons.${index}.id`} type="number" />
+
+                    <RadioButtonField
+                      control={control}
+                      label="i18n対応"
+                      name={`pokemons.${index}.isSupportI18n`}
+                      options={[
+                        {
+                          label: "対応する",
+                          value: true,
+                        },
+                        {
+                          label: "対応しない",
+                          value: false,
+                        },
+                      ]}
+                      row={true}
+                    />
                   </Stack>
 
                   <Stack alignItems="center" flexDirection="row" gap={2} py={1}>

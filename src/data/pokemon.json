@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+    "isSupportI18n": true,
     "name": {
       "english": "Bulbasaur",
       "japanese": "フシギダネ",
@@ -19,6 +20,7 @@
   },
   {
     "id": 2,
+    "isSupportI18n": true,
     "name": {
       "english": "Ivysaur",
       "japanese": "フシギソウ",
@@ -37,6 +39,7 @@
   },
   {
     "id": 3,
+    "isSupportI18n": true,
     "name": {
       "english": "Venusaur",
       "japanese": "フシギバナ",
@@ -55,6 +58,7 @@
   },
   {
     "id": 4,
+    "isSupportI18n": true,
     "name": {
       "english": "Charmander",
       "japanese": "ヒトカゲ",
@@ -73,6 +77,7 @@
   },
   {
     "id": 5,
+    "isSupportI18n": true,
     "name": {
       "english": "Charmeleon",
       "japanese": "リザード",
@@ -91,6 +96,7 @@
   },
   {
     "id": 6,
+    "isSupportI18n": true,
     "name": {
       "english": "Charizard",
       "japanese": "リザードン",
@@ -109,6 +115,7 @@
   },
   {
     "id": 7,
+    "isSupportI18n": true,
     "name": {
       "english": "Squirtle",
       "japanese": "ゼニガメ",
@@ -127,6 +134,7 @@
   },
   {
     "id": 8,
+    "isSupportI18n": true,
     "name": {
       "english": "Wartortle",
       "japanese": "カメール",
@@ -145,6 +153,7 @@
   },
   {
     "id": 9,
+    "isSupportI18n": true,
     "name": {
       "english": "Blastoise",
       "japanese": "カメックス",
@@ -163,6 +172,7 @@
   },
   {
     "id": 10,
+    "isSupportI18n": true,
     "name": {
       "english": "Caterpie",
       "japanese": "キャタピー",
@@ -181,6 +191,7 @@
   },
   {
     "id": 11,
+    "isSupportI18n": true,
     "name": {
       "english": "Metapod",
       "japanese": "トランセル",
@@ -199,6 +210,7 @@
   },
   {
     "id": 12,
+    "isSupportI18n": true,
     "name": {
       "english": "Butterfree",
       "japanese": "バタフリー",
@@ -217,6 +229,7 @@
   },
   {
     "id": 13,
+    "isSupportI18n": true,
     "name": {
       "english": "Weedle",
       "japanese": "ビードル",
@@ -235,6 +248,7 @@
   },
   {
     "id": 14,
+    "isSupportI18n": true,
     "name": {
       "english": "Kakuna",
       "japanese": "コクーン",
@@ -253,6 +267,7 @@
   },
   {
     "id": 15,
+    "isSupportI18n": true,
     "name": {
       "english": "Beedrill",
       "japanese": "スピアー",
@@ -271,6 +286,7 @@
   },
   {
     "id": 16,
+    "isSupportI18n": true,
     "name": {
       "english": "Pidgey",
       "japanese": "ポッポ",
@@ -289,6 +305,7 @@
   },
   {
     "id": 17,
+    "isSupportI18n": true,
     "name": {
       "english": "Pidgeotto",
       "japanese": "ピジョン",
@@ -307,6 +324,7 @@
   },
   {
     "id": 18,
+    "isSupportI18n": true,
     "name": {
       "english": "Pidgeot",
       "japanese": "ピジョット",
@@ -325,6 +343,7 @@
   },
   {
     "id": 19,
+    "isSupportI18n": true,
     "name": {
       "english": "Rattata",
       "japanese": "コラッタ",
@@ -343,6 +362,7 @@
   },
   {
     "id": 20,
+    "isSupportI18n": true,
     "name": {
       "english": "Raticate",
       "japanese": "ラッタ",
@@ -361,6 +381,7 @@
   },
   {
     "id": 21,
+    "isSupportI18n": true,
     "name": {
       "english": "Spearow",
       "japanese": "オニスズメ",
@@ -379,6 +400,7 @@
   },
   {
     "id": 22,
+    "isSupportI18n": true,
     "name": {
       "english": "Fearow",
       "japanese": "オニドリル",
@@ -397,6 +419,7 @@
   },
   {
     "id": 23,
+    "isSupportI18n": true,
     "name": {
       "english": "Ekans",
       "japanese": "アーボ",
@@ -415,6 +438,7 @@
   },
   {
     "id": 24,
+    "isSupportI18n": true,
     "name": {
       "english": "Arbok",
       "japanese": "アーボック",
@@ -433,6 +457,7 @@
   },
   {
     "id": 25,
+    "isSupportI18n": true,
     "name": {
       "english": "Pikachu",
       "japanese": "ピカチュウ",
@@ -451,6 +476,7 @@
   },
   {
     "id": 26,
+    "isSupportI18n": true,
     "name": {
       "english": "Raichu",
       "japanese": "ライチュウ",
@@ -469,6 +495,7 @@
   },
   {
     "id": 27,
+    "isSupportI18n": true,
     "name": {
       "english": "Sandshrew",
       "japanese": "サンド",
@@ -487,6 +514,7 @@
   },
   {
     "id": 28,
+    "isSupportI18n": true,
     "name": {
       "english": "Sandslash",
       "japanese": "サンドパン",
@@ -505,6 +533,7 @@
   },
   {
     "id": 29,
+    "isSupportI18n": true,
     "name": {
       "english": "Nidoran♀",
       "japanese": "ニドラン♀",
@@ -523,6 +552,7 @@
   },
   {
     "id": 30,
+    "isSupportI18n": true,
     "name": {
       "english": "Nidorina",
       "japanese": "ニドリーナ",
@@ -541,6 +571,7 @@
   },
   {
     "id": 31,
+    "isSupportI18n": true,
     "name": {
       "english": "Nidoqueen",
       "japanese": "ニドクイン",
@@ -559,6 +590,7 @@
   },
   {
     "id": 32,
+    "isSupportI18n": true,
     "name": {
       "english": "Nidoran♂",
       "japanese": "ニドラン♂",
@@ -577,6 +609,7 @@
   },
   {
     "id": 33,
+    "isSupportI18n": true,
     "name": {
       "english": "Nidorino",
       "japanese": "ニドリーノ",
@@ -595,6 +628,7 @@
   },
   {
     "id": 34,
+    "isSupportI18n": true,
     "name": {
       "english": "Nidoking",
       "japanese": "ニドキング",
@@ -613,6 +647,7 @@
   },
   {
     "id": 35,
+    "isSupportI18n": true,
     "name": {
       "english": "Clefairy",
       "japanese": "ピッピ",
@@ -631,6 +666,7 @@
   },
   {
     "id": 36,
+    "isSupportI18n": true,
     "name": {
       "english": "Clefable",
       "japanese": "ピクシー",
@@ -649,6 +685,7 @@
   },
   {
     "id": 37,
+    "isSupportI18n": true,
     "name": {
       "english": "Vulpix",
       "japanese": "ロコン",
@@ -667,6 +704,7 @@
   },
   {
     "id": 38,
+    "isSupportI18n": true,
     "name": {
       "english": "Ninetales",
       "japanese": "キュウコン",
@@ -685,6 +723,7 @@
   },
   {
     "id": 39,
+    "isSupportI18n": true,
     "name": {
       "english": "Jigglypuff",
       "japanese": "プリン",
@@ -703,6 +742,7 @@
   },
   {
     "id": 40,
+    "isSupportI18n": true,
     "name": {
       "english": "Wigglytuff",
       "japanese": "プクリン",
@@ -721,6 +761,7 @@
   },
   {
     "id": 41,
+    "isSupportI18n": true,
     "name": {
       "english": "Zubat",
       "japanese": "ズバット",
@@ -739,6 +780,7 @@
   },
   {
     "id": 42,
+    "isSupportI18n": true,
     "name": {
       "english": "Golbat",
       "japanese": "ゴルバット",
@@ -757,6 +799,7 @@
   },
   {
     "id": 43,
+    "isSupportI18n": true,
     "name": {
       "english": "Oddish",
       "japanese": "ナゾノクサ",
@@ -775,6 +818,7 @@
   },
   {
     "id": 44,
+    "isSupportI18n": true,
     "name": {
       "english": "Gloom",
       "japanese": "クサイハナ",
@@ -793,6 +837,7 @@
   },
   {
     "id": 45,
+    "isSupportI18n": true,
     "name": {
       "english": "Vileplume",
       "japanese": "ラフレシア",
@@ -811,6 +856,7 @@
   },
   {
     "id": 46,
+    "isSupportI18n": true,
     "name": {
       "english": "Paras",
       "japanese": "パラス",
@@ -829,6 +875,7 @@
   },
   {
     "id": 47,
+    "isSupportI18n": true,
     "name": {
       "english": "Parasect",
       "japanese": "パラセクト",
@@ -847,6 +894,7 @@
   },
   {
     "id": 48,
+    "isSupportI18n": true,
     "name": {
       "english": "Venonat",
       "japanese": "コンパン",
@@ -865,6 +913,7 @@
   },
   {
     "id": 49,
+    "isSupportI18n": true,
     "name": {
       "english": "Venomoth",
       "japanese": "モルフォン",
@@ -883,6 +932,7 @@
   },
   {
     "id": 50,
+    "isSupportI18n": true,
     "name": {
       "english": "Diglett",
       "japanese": "ディグダ",
@@ -901,6 +951,7 @@
   },
   {
     "id": 51,
+    "isSupportI18n": true,
     "name": {
       "english": "Dugtrio",
       "japanese": "ダグトリオ",
@@ -919,6 +970,7 @@
   },
   {
     "id": 52,
+    "isSupportI18n": true,
     "name": {
       "english": "Meowth",
       "japanese": "ニャース",
@@ -937,6 +989,7 @@
   },
   {
     "id": 53,
+    "isSupportI18n": true,
     "name": {
       "english": "Persian",
       "japanese": "ペルシアン",
@@ -955,6 +1008,7 @@
   },
   {
     "id": 54,
+    "isSupportI18n": true,
     "name": {
       "english": "Psyduck",
       "japanese": "コダック",
@@ -973,6 +1027,7 @@
   },
   {
     "id": 55,
+    "isSupportI18n": true,
     "name": {
       "english": "Golduck",
       "japanese": "ゴルダック",
@@ -991,6 +1046,7 @@
   },
   {
     "id": 56,
+    "isSupportI18n": true,
     "name": {
       "english": "Mankey",
       "japanese": "マンキー",
@@ -1009,6 +1065,7 @@
   },
   {
     "id": 57,
+    "isSupportI18n": true,
     "name": {
       "english": "Primeape",
       "japanese": "オコリザル",
@@ -1027,6 +1084,7 @@
   },
   {
     "id": 58,
+    "isSupportI18n": true,
     "name": {
       "english": "Growlithe",
       "japanese": "ガーディ",
@@ -1045,6 +1103,7 @@
   },
   {
     "id": 59,
+    "isSupportI18n": true,
     "name": {
       "english": "Arcanine",
       "japanese": "ウインディ",
@@ -1063,6 +1122,7 @@
   },
   {
     "id": 60,
+    "isSupportI18n": true,
     "name": {
       "english": "Poliwag",
       "japanese": "ニョロモ",
@@ -1081,6 +1141,7 @@
   },
   {
     "id": 61,
+    "isSupportI18n": true,
     "name": {
       "english": "Poliwhirl",
       "japanese": "ニョロゾ",
@@ -1099,6 +1160,7 @@
   },
   {
     "id": 62,
+    "isSupportI18n": true,
     "name": {
       "english": "Poliwrath",
       "japanese": "ニョロボン",
@@ -1117,6 +1179,7 @@
   },
   {
     "id": 63,
+    "isSupportI18n": true,
     "name": {
       "english": "Abra",
       "japanese": "ケーシィ",
@@ -1135,6 +1198,7 @@
   },
   {
     "id": 64,
+    "isSupportI18n": true,
     "name": {
       "english": "Kadabra",
       "japanese": "ユンゲラー",
@@ -1153,6 +1217,7 @@
   },
   {
     "id": 65,
+    "isSupportI18n": true,
     "name": {
       "english": "Alakazam",
       "japanese": "フーディン",
@@ -1171,6 +1236,7 @@
   },
   {
     "id": 66,
+    "isSupportI18n": true,
     "name": {
       "english": "Machop",
       "japanese": "ワンリキー",
@@ -1189,6 +1255,7 @@
   },
   {
     "id": 67,
+    "isSupportI18n": true,
     "name": {
       "english": "Machoke",
       "japanese": "ゴーリキー",
@@ -1207,6 +1274,7 @@
   },
   {
     "id": 68,
+    "isSupportI18n": true,
     "name": {
       "english": "Machamp",
       "japanese": "カイリキー",
@@ -1225,6 +1293,7 @@
   },
   {
     "id": 69,
+    "isSupportI18n": true,
     "name": {
       "english": "Bellsprout",
       "japanese": "マダツボミ",
@@ -1243,6 +1312,7 @@
   },
   {
     "id": 70,
+    "isSupportI18n": true,
     "name": {
       "english": "Weepinbell",
       "japanese": "ウツドン",
@@ -1261,6 +1331,7 @@
   },
   {
     "id": 71,
+    "isSupportI18n": true,
     "name": {
       "english": "Victreebel",
       "japanese": "ウツボット",
@@ -1279,6 +1350,7 @@
   },
   {
     "id": 72,
+    "isSupportI18n": true,
     "name": {
       "english": "Tentacool",
       "japanese": "メノクラゲ",
@@ -1297,6 +1369,7 @@
   },
   {
     "id": 73,
+    "isSupportI18n": true,
     "name": {
       "english": "Tentacruel",
       "japanese": "ドククラゲ",
@@ -1315,6 +1388,7 @@
   },
   {
     "id": 74,
+    "isSupportI18n": true,
     "name": {
       "english": "Geodude",
       "japanese": "イシツブテ",
@@ -1333,6 +1407,7 @@
   },
   {
     "id": 75,
+    "isSupportI18n": true,
     "name": {
       "english": "Graveler",
       "japanese": "ゴローン",
@@ -1351,6 +1426,7 @@
   },
   {
     "id": 76,
+    "isSupportI18n": true,
     "name": {
       "english": "Golem",
       "japanese": "ゴローニャ",
@@ -1369,6 +1445,7 @@
   },
   {
     "id": 77,
+    "isSupportI18n": true,
     "name": {
       "english": "Ponyta",
       "japanese": "ポニータ",
@@ -1387,6 +1464,7 @@
   },
   {
     "id": 78,
+    "isSupportI18n": true,
     "name": {
       "english": "Rapidash",
       "japanese": "ギャロップ",
@@ -1405,6 +1483,7 @@
   },
   {
     "id": 79,
+    "isSupportI18n": true,
     "name": {
       "english": "Slowpoke",
       "japanese": "ヤドン",
@@ -1423,6 +1502,7 @@
   },
   {
     "id": 80,
+    "isSupportI18n": true,
     "name": {
       "english": "Slowbro",
       "japanese": "ヤドラン",
@@ -1441,6 +1521,7 @@
   },
   {
     "id": 81,
+    "isSupportI18n": true,
     "name": {
       "english": "Magnemite",
       "japanese": "コイル",
@@ -1459,6 +1540,7 @@
   },
   {
     "id": 82,
+    "isSupportI18n": true,
     "name": {
       "english": "Magneton",
       "japanese": "レアコイル",
@@ -1477,6 +1559,7 @@
   },
   {
     "id": 83,
+    "isSupportI18n": true,
     "name": {
       "english": "Farfetch'd",
       "japanese": "カモネギ",
@@ -1495,6 +1578,7 @@
   },
   {
     "id": 84,
+    "isSupportI18n": true,
     "name": {
       "english": "Doduo",
       "japanese": "ドードー",
@@ -1513,6 +1597,7 @@
   },
   {
     "id": 85,
+    "isSupportI18n": true,
     "name": {
       "english": "Dodrio",
       "japanese": "ドードリオ",
@@ -1531,6 +1616,7 @@
   },
   {
     "id": 86,
+    "isSupportI18n": true,
     "name": {
       "english": "Seel",
       "japanese": "パウワウ",
@@ -1549,6 +1635,7 @@
   },
   {
     "id": 87,
+    "isSupportI18n": true,
     "name": {
       "english": "Dewgong",
       "japanese": "ジュゴン",
@@ -1567,6 +1654,7 @@
   },
   {
     "id": 88,
+    "isSupportI18n": true,
     "name": {
       "english": "Grimer",
       "japanese": "ベトベター",
@@ -1585,6 +1673,7 @@
   },
   {
     "id": 89,
+    "isSupportI18n": true,
     "name": {
       "english": "Muk",
       "japanese": "ベトベトン",
@@ -1603,6 +1692,7 @@
   },
   {
     "id": 90,
+    "isSupportI18n": true,
     "name": {
       "english": "Shellder",
       "japanese": "シェルダー",
@@ -1621,6 +1711,7 @@
   },
   {
     "id": 91,
+    "isSupportI18n": true,
     "name": {
       "english": "Cloyster",
       "japanese": "パルシェン",
@@ -1639,6 +1730,7 @@
   },
   {
     "id": 92,
+    "isSupportI18n": true,
     "name": {
       "english": "Gastly",
       "japanese": "ゴース",
@@ -1657,6 +1749,7 @@
   },
   {
     "id": 93,
+    "isSupportI18n": true,
     "name": {
       "english": "Haunter",
       "japanese": "ゴースト",
@@ -1675,6 +1768,7 @@
   },
   {
     "id": 94,
+    "isSupportI18n": true,
     "name": {
       "english": "Gengar",
       "japanese": "ゲンガー",
@@ -1693,6 +1787,7 @@
   },
   {
     "id": 95,
+    "isSupportI18n": true,
     "name": {
       "english": "Onix",
       "japanese": "イワーク",
@@ -1711,6 +1806,7 @@
   },
   {
     "id": 96,
+    "isSupportI18n": true,
     "name": {
       "english": "Drowzee",
       "japanese": "スリープ",
@@ -1729,6 +1825,7 @@
   },
   {
     "id": 97,
+    "isSupportI18n": true,
     "name": {
       "english": "Hypno",
       "japanese": "スリーパー",
@@ -1747,6 +1844,7 @@
   },
   {
     "id": 98,
+    "isSupportI18n": true,
     "name": {
       "english": "Krabby",
       "japanese": "クラブ",
@@ -1765,6 +1863,7 @@
   },
   {
     "id": 99,
+    "isSupportI18n": true,
     "name": {
       "english": "Kingler",
       "japanese": "キングラー",
@@ -1783,6 +1882,7 @@
   },
   {
     "id": 100,
+    "isSupportI18n": true,
     "name": {
       "english": "Voltorb",
       "japanese": "ビリリダマ",
@@ -1801,6 +1901,7 @@
   },
   {
     "id": 101,
+    "isSupportI18n": true,
     "name": {
       "english": "Electrode",
       "japanese": "マルマイン",
@@ -1819,6 +1920,7 @@
   },
   {
     "id": 102,
+    "isSupportI18n": true,
     "name": {
       "english": "Exeggcute",
       "japanese": "タマタマ",
@@ -1837,6 +1939,7 @@
   },
   {
     "id": 103,
+    "isSupportI18n": true,
     "name": {
       "english": "Exeggutor",
       "japanese": "ナッシー",
@@ -1855,6 +1958,7 @@
   },
   {
     "id": 104,
+    "isSupportI18n": true,
     "name": {
       "english": "Cubone",
       "japanese": "カラカラ",
@@ -1873,6 +1977,7 @@
   },
   {
     "id": 105,
+    "isSupportI18n": true,
     "name": {
       "english": "Marowak",
       "japanese": "ガラガラ",
@@ -1891,6 +1996,7 @@
   },
   {
     "id": 106,
+    "isSupportI18n": true,
     "name": {
       "english": "Hitmonlee",
       "japanese": "サワムラー",
@@ -1909,6 +2015,7 @@
   },
   {
     "id": 107,
+    "isSupportI18n": true,
     "name": {
       "english": "Hitmonchan",
       "japanese": "エビワラー",
@@ -1927,6 +2034,7 @@
   },
   {
     "id": 108,
+    "isSupportI18n": true,
     "name": {
       "english": "Lickitung",
       "japanese": "ベロリンガ",
@@ -1945,6 +2053,7 @@
   },
   {
     "id": 109,
+    "isSupportI18n": true,
     "name": {
       "english": "Koffing",
       "japanese": "ドガース",
@@ -1963,6 +2072,7 @@
   },
   {
     "id": 110,
+    "isSupportI18n": true,
     "name": {
       "english": "Weezing",
       "japanese": "マタドガス",
@@ -1981,6 +2091,7 @@
   },
   {
     "id": 111,
+    "isSupportI18n": true,
     "name": {
       "english": "Rhyhorn",
       "japanese": "サイホーン",
@@ -1999,6 +2110,7 @@
   },
   {
     "id": 112,
+    "isSupportI18n": true,
     "name": {
       "english": "Rhydon",
       "japanese": "サイドン",
@@ -2017,6 +2129,7 @@
   },
   {
     "id": 113,
+    "isSupportI18n": true,
     "name": {
       "english": "Chansey",
       "japanese": "ラッキー",
@@ -2035,6 +2148,7 @@
   },
   {
     "id": 114,
+    "isSupportI18n": true,
     "name": {
       "english": "Tangela",
       "japanese": "モンジャラ",
@@ -2053,6 +2167,7 @@
   },
   {
     "id": 115,
+    "isSupportI18n": true,
     "name": {
       "english": "Kangaskhan",
       "japanese": "ガルーラ",
@@ -2071,6 +2186,7 @@
   },
   {
     "id": 116,
+    "isSupportI18n": true,
     "name": {
       "english": "Horsea",
       "japanese": "タッツー",
@@ -2089,6 +2205,7 @@
   },
   {
     "id": 117,
+    "isSupportI18n": true,
     "name": {
       "english": "Seadra",
       "japanese": "シードラ",
@@ -2107,6 +2224,7 @@
   },
   {
     "id": 118,
+    "isSupportI18n": true,
     "name": {
       "english": "Goldeen",
       "japanese": "トサキント",
@@ -2125,6 +2243,7 @@
   },
   {
     "id": 119,
+    "isSupportI18n": true,
     "name": {
       "english": "Seaking",
       "japanese": "アズマオウ",
@@ -2143,6 +2262,7 @@
   },
   {
     "id": 120,
+    "isSupportI18n": true,
     "name": {
       "english": "Staryu",
       "japanese": "ヒトデマン",
@@ -2161,6 +2281,7 @@
   },
   {
     "id": 121,
+    "isSupportI18n": true,
     "name": {
       "english": "Starmie",
       "japanese": "スターミー",
@@ -2179,6 +2300,7 @@
   },
   {
     "id": 122,
+    "isSupportI18n": true,
     "name": {
       "english": "Mr. Mime",
       "japanese": "バリヤード",
@@ -2197,6 +2319,7 @@
   },
   {
     "id": 123,
+    "isSupportI18n": true,
     "name": {
       "english": "Scyther",
       "japanese": "ストライク",
@@ -2215,6 +2338,7 @@
   },
   {
     "id": 124,
+    "isSupportI18n": true,
     "name": {
       "english": "Jynx",
       "japanese": "ルージュラ",
@@ -2233,6 +2357,7 @@
   },
   {
     "id": 125,
+    "isSupportI18n": true,
     "name": {
       "english": "Electabuzz",
       "japanese": "エレブー",
@@ -2251,6 +2376,7 @@
   },
   {
     "id": 126,
+    "isSupportI18n": true,
     "name": {
       "english": "Magmar",
       "japanese": "ブーバー",
@@ -2269,6 +2395,7 @@
   },
   {
     "id": 127,
+    "isSupportI18n": true,
     "name": {
       "english": "Pinsir",
       "japanese": "カイロス",
@@ -2287,6 +2414,7 @@
   },
   {
     "id": 128,
+    "isSupportI18n": true,
     "name": {
       "english": "Tauros",
       "japanese": "ケンタロス",
@@ -2305,6 +2433,7 @@
   },
   {
     "id": 129,
+    "isSupportI18n": true,
     "name": {
       "english": "Magikarp",
       "japanese": "コイキング",
@@ -2323,6 +2452,7 @@
   },
   {
     "id": 130,
+    "isSupportI18n": true,
     "name": {
       "english": "Gyarados",
       "japanese": "ギャラドス",
@@ -2341,6 +2471,7 @@
   },
   {
     "id": 131,
+    "isSupportI18n": true,
     "name": {
       "english": "Lapras",
       "japanese": "ラプラス",
@@ -2359,6 +2490,7 @@
   },
   {
     "id": 132,
+    "isSupportI18n": true,
     "name": {
       "english": "Ditto",
       "japanese": "メタモン",
@@ -2377,6 +2509,7 @@
   },
   {
     "id": 133,
+    "isSupportI18n": true,
     "name": {
       "english": "Eevee",
       "japanese": "イーブイ",
@@ -2395,6 +2528,7 @@
   },
   {
     "id": 134,
+    "isSupportI18n": true,
     "name": {
       "english": "Vaporeon",
       "japanese": "シャワーズ",
@@ -2413,6 +2547,7 @@
   },
   {
     "id": 135,
+    "isSupportI18n": true,
     "name": {
       "english": "Jolteon",
       "japanese": "サンダース",
@@ -2431,6 +2566,7 @@
   },
   {
     "id": 136,
+    "isSupportI18n": true,
     "name": {
       "english": "Flareon",
       "japanese": "ブースター",
@@ -2449,6 +2585,7 @@
   },
   {
     "id": 137,
+    "isSupportI18n": true,
     "name": {
       "english": "Porygon",
       "japanese": "ポリゴン",
@@ -2467,6 +2604,7 @@
   },
   {
     "id": 138,
+    "isSupportI18n": true,
     "name": {
       "english": "Omanyte",
       "japanese": "オムナイト",
@@ -2485,6 +2623,7 @@
   },
   {
     "id": 139,
+    "isSupportI18n": true,
     "name": {
       "english": "Omastar",
       "japanese": "オムスター",
@@ -2503,6 +2642,7 @@
   },
   {
     "id": 140,
+    "isSupportI18n": true,
     "name": {
       "english": "Kabuto",
       "japanese": "カブト",
@@ -2521,6 +2661,7 @@
   },
   {
     "id": 141,
+    "isSupportI18n": true,
     "name": {
       "english": "Kabutops",
       "japanese": "カブトプス",
@@ -2539,6 +2680,7 @@
   },
   {
     "id": 142,
+    "isSupportI18n": true,
     "name": {
       "english": "Aerodactyl",
       "japanese": "プテラ",
@@ -2557,6 +2699,7 @@
   },
   {
     "id": 143,
+    "isSupportI18n": true,
     "name": {
       "english": "Snorlax",
       "japanese": "カビゴン",
@@ -2575,6 +2718,7 @@
   },
   {
     "id": 144,
+    "isSupportI18n": true,
     "name": {
       "english": "Articuno",
       "japanese": "フリーザー",
@@ -2593,6 +2737,7 @@
   },
   {
     "id": 145,
+    "isSupportI18n": true,
     "name": {
       "english": "Zapdos",
       "japanese": "サンダー",
@@ -2611,6 +2756,7 @@
   },
   {
     "id": 146,
+    "isSupportI18n": true,
     "name": {
       "english": "Moltres",
       "japanese": "ファイヤー",
@@ -2629,6 +2775,7 @@
   },
   {
     "id": 147,
+    "isSupportI18n": true,
     "name": {
       "english": "Dratini",
       "japanese": "ミニリュウ",
@@ -2647,6 +2794,7 @@
   },
   {
     "id": 148,
+    "isSupportI18n": true,
     "name": {
       "english": "Dragonair",
       "japanese": "ハクリュー",
@@ -2665,6 +2813,7 @@
   },
   {
     "id": 149,
+    "isSupportI18n": true,
     "name": {
       "english": "Dragonite",
       "japanese": "カイリュー",
@@ -2683,6 +2832,7 @@
   },
   {
     "id": 150,
+    "isSupportI18n": true,
     "name": {
       "english": "Mewtwo",
       "japanese": "ミュウツー",
@@ -2701,6 +2851,7 @@
   },
   {
     "id": 151,
+    "isSupportI18n": true,
     "name": {
       "english": "Mew",
       "japanese": "ミュウ",
@@ -2719,6 +2870,7 @@
   },
   {
     "id": 152,
+    "isSupportI18n": true,
     "name": {
       "english": "Chikorita",
       "japanese": "チコリータ",
@@ -2737,6 +2889,7 @@
   },
   {
     "id": 153,
+    "isSupportI18n": true,
     "name": {
       "english": "Bayleef",
       "japanese": "ベイリーフ",
@@ -2755,6 +2908,7 @@
   },
   {
     "id": 154,
+    "isSupportI18n": true,
     "name": {
       "english": "Meganium",
       "japanese": "メガニウム",
@@ -2773,6 +2927,7 @@
   },
   {
     "id": 155,
+    "isSupportI18n": true,
     "name": {
       "english": "Cyndaquil",
       "japanese": "ヒノアラシ",
@@ -2791,6 +2946,7 @@
   },
   {
     "id": 156,
+    "isSupportI18n": true,
     "name": {
       "english": "Quilava",
       "japanese": "マグマラシ",
@@ -2809,6 +2965,7 @@
   },
   {
     "id": 157,
+    "isSupportI18n": true,
     "name": {
       "english": "Typhlosion",
       "japanese": "バクフーン",
@@ -2827,6 +2984,7 @@
   },
   {
     "id": 158,
+    "isSupportI18n": true,
     "name": {
       "english": "Totodile",
       "japanese": "ワニノコ",
@@ -2845,6 +3003,7 @@
   },
   {
     "id": 159,
+    "isSupportI18n": true,
     "name": {
       "english": "Croconaw",
       "japanese": "アリゲイツ",
@@ -2863,6 +3022,7 @@
   },
   {
     "id": 160,
+    "isSupportI18n": true,
     "name": {
       "english": "Feraligatr",
       "japanese": "オーダイル",
@@ -2881,6 +3041,7 @@
   },
   {
     "id": 161,
+    "isSupportI18n": true,
     "name": {
       "english": "Sentret",
       "japanese": "オタチ",
@@ -2899,6 +3060,7 @@
   },
   {
     "id": 162,
+    "isSupportI18n": true,
     "name": {
       "english": "Furret",
       "japanese": "オオタチ",
@@ -2917,6 +3079,7 @@
   },
   {
     "id": 163,
+    "isSupportI18n": true,
     "name": {
       "english": "Hoothoot",
       "japanese": "ホーホー",
@@ -2935,6 +3098,7 @@
   },
   {
     "id": 164,
+    "isSupportI18n": true,
     "name": {
       "english": "Noctowl",
       "japanese": "ヨルノズク",
@@ -2953,6 +3117,7 @@
   },
   {
     "id": 165,
+    "isSupportI18n": true,
     "name": {
       "english": "Ledyba",
       "japanese": "レディバ",
@@ -2971,6 +3136,7 @@
   },
   {
     "id": 166,
+    "isSupportI18n": true,
     "name": {
       "english": "Ledian",
       "japanese": "レディアン",
@@ -2989,6 +3155,7 @@
   },
   {
     "id": 167,
+    "isSupportI18n": true,
     "name": {
       "english": "Spinarak",
       "japanese": "イトマル",
@@ -3007,6 +3174,7 @@
   },
   {
     "id": 168,
+    "isSupportI18n": true,
     "name": {
       "english": "Ariados",
       "japanese": "アリアドス",
@@ -3025,6 +3193,7 @@
   },
   {
     "id": 169,
+    "isSupportI18n": true,
     "name": {
       "english": "Crobat",
       "japanese": "クロバット",
@@ -3043,6 +3212,7 @@
   },
   {
     "id": 170,
+    "isSupportI18n": true,
     "name": {
       "english": "Chinchou",
       "japanese": "チョンチー",
@@ -3061,6 +3231,7 @@
   },
   {
     "id": 171,
+    "isSupportI18n": true,
     "name": {
       "english": "Lanturn",
       "japanese": "ランターン",
@@ -3079,6 +3250,7 @@
   },
   {
     "id": 172,
+    "isSupportI18n": true,
     "name": {
       "english": "Pichu",
       "japanese": "ピチュー",
@@ -3097,6 +3269,7 @@
   },
   {
     "id": 173,
+    "isSupportI18n": true,
     "name": {
       "english": "Cleffa",
       "japanese": "ピィ",
@@ -3115,6 +3288,7 @@
   },
   {
     "id": 174,
+    "isSupportI18n": true,
     "name": {
       "english": "Igglybuff",
       "japanese": "ププリン",
@@ -3133,6 +3307,7 @@
   },
   {
     "id": 175,
+    "isSupportI18n": true,
     "name": {
       "english": "Togepi",
       "japanese": "トゲピー",
@@ -3151,6 +3326,7 @@
   },
   {
     "id": 176,
+    "isSupportI18n": true,
     "name": {
       "english": "Togetic",
       "japanese": "トゲチック",
@@ -3169,6 +3345,7 @@
   },
   {
     "id": 177,
+    "isSupportI18n": true,
     "name": {
       "english": "Natu",
       "japanese": "ネイティ",
@@ -3187,6 +3364,7 @@
   },
   {
     "id": 178,
+    "isSupportI18n": true,
     "name": {
       "english": "Xatu",
       "japanese": "ネイティオ",
@@ -3205,6 +3383,7 @@
   },
   {
     "id": 179,
+    "isSupportI18n": true,
     "name": {
       "english": "Mareep",
       "japanese": "メリープ",
@@ -3223,6 +3402,7 @@
   },
   {
     "id": 180,
+    "isSupportI18n": true,
     "name": {
       "english": "Flaaffy",
       "japanese": "モココ",
@@ -3241,6 +3421,7 @@
   },
   {
     "id": 181,
+    "isSupportI18n": true,
     "name": {
       "english": "Ampharos",
       "japanese": "デンリュウ",
@@ -3259,6 +3440,7 @@
   },
   {
     "id": 182,
+    "isSupportI18n": true,
     "name": {
       "english": "Bellossom",
       "japanese": "キレイハナ",
@@ -3277,6 +3459,7 @@
   },
   {
     "id": 183,
+    "isSupportI18n": true,
     "name": {
       "english": "Marill",
       "japanese": "マリル",
@@ -3295,6 +3478,7 @@
   },
   {
     "id": 184,
+    "isSupportI18n": true,
     "name": {
       "english": "Azumarill",
       "japanese": "マリルリ",
@@ -3313,6 +3497,7 @@
   },
   {
     "id": 185,
+    "isSupportI18n": true,
     "name": {
       "english": "Sudowoodo",
       "japanese": "ウソッキー",
@@ -3331,6 +3516,7 @@
   },
   {
     "id": 186,
+    "isSupportI18n": true,
     "name": {
       "english": "Politoed",
       "japanese": "ニョロトノ",
@@ -3349,6 +3535,7 @@
   },
   {
     "id": 187,
+    "isSupportI18n": true,
     "name": {
       "english": "Hoppip",
       "japanese": "ハネッコ",
@@ -3367,6 +3554,7 @@
   },
   {
     "id": 188,
+    "isSupportI18n": true,
     "name": {
       "english": "Skiploom",
       "japanese": "ポポッコ",
@@ -3385,6 +3573,7 @@
   },
   {
     "id": 189,
+    "isSupportI18n": true,
     "name": {
       "english": "Jumpluff",
       "japanese": "ワタッコ",
@@ -3403,6 +3592,7 @@
   },
   {
     "id": 190,
+    "isSupportI18n": true,
     "name": {
       "english": "Aipom",
       "japanese": "エイパム",
@@ -3421,6 +3611,7 @@
   },
   {
     "id": 191,
+    "isSupportI18n": true,
     "name": {
       "english": "Sunkern",
       "japanese": "ヒマナッツ",
@@ -3439,6 +3630,7 @@
   },
   {
     "id": 192,
+    "isSupportI18n": true,
     "name": {
       "english": "Sunflora",
       "japanese": "キマワリ",
@@ -3457,6 +3649,7 @@
   },
   {
     "id": 193,
+    "isSupportI18n": true,
     "name": {
       "english": "Yanma",
       "japanese": "ヤンヤンマ",
@@ -3475,6 +3668,7 @@
   },
   {
     "id": 194,
+    "isSupportI18n": true,
     "name": {
       "english": "Wooper",
       "japanese": "ウパー",
@@ -3493,6 +3687,7 @@
   },
   {
     "id": 195,
+    "isSupportI18n": true,
     "name": {
       "english": "Quagsire",
       "japanese": "ヌオー",
@@ -3511,6 +3706,7 @@
   },
   {
     "id": 196,
+    "isSupportI18n": true,
     "name": {
       "english": "Espeon",
       "japanese": "エーフィ",
@@ -3529,6 +3725,7 @@
   },
   {
     "id": 197,
+    "isSupportI18n": true,
     "name": {
       "english": "Umbreon",
       "japanese": "ブラッキー",
@@ -3547,6 +3744,7 @@
   },
   {
     "id": 198,
+    "isSupportI18n": true,
     "name": {
       "english": "Murkrow",
       "japanese": "ヤミカラス",
@@ -3565,6 +3763,7 @@
   },
   {
     "id": 199,
+    "isSupportI18n": true,
     "name": {
       "english": "Slowking",
       "japanese": "ヤドキング",
@@ -3583,6 +3782,7 @@
   },
   {
     "id": 200,
+    "isSupportI18n": true,
     "name": {
       "english": "Misdreavus",
       "japanese": "ムウマ",
