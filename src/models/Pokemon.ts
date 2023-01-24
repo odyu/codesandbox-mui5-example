@@ -57,7 +57,7 @@ export const validationPokemonSchema: Yup.SchemaOf<Pokemon> = Yup.object()
       })
       .required(),
     id: Yup.number().required("IDを入力してください"),
-    isSupportI18n: Yup.number().required("i18n対応を選択してください"),
+    isSupportI18n: Yup.boolean().required("i18n対応を選択してください"),
     name: Yup.object()
       .shape({
         chinese: Yup.string().when("isSupportI18n", {

@@ -10,27 +10,25 @@ import {
   useTheme,
 } from "@mui/material";
 import { useCallback, useMemo } from "react";
-import { Control, FieldError, Path, useController } from "react-hook-form";
+import { Control, Path, useController } from "react-hook-form";
 import { FieldValues } from "react-hook-form/dist/types/fields";
 import { FieldPathValue } from "react-hook-form/dist/types/path/eager";
 
-export type RadioButtonFieldProps<T extends FieldValues> = Pick<TextFieldProps, "helperText" | "required" | "label"> & {
-  options: { label: string; value: FieldPathValue<FieldValues, Path<T>> }[];
-  name: Path<T>;
-  parseError?: (error: FieldError) => string;
-  onChange?: (value: FieldPathValue<FieldValues, Path<T>>) => void;
-  row?: boolean;
-  control?: Control<T>;
-  parseValue: (value: string) => FieldPathValue<FieldValues, Path<T>>;
-  formatValue: (value: FieldPathValue<FieldValues, Path<T>>) => string;
-};
+export type RadioButtonFieldProps<T extends FieldValues> = Pick<TextFieldProps, "helperText" | "required" | "label"> &
+  Pick<RadioGroupProps, "row"> & {
+    options: { label: string; value: FieldPathValue<FieldValues, Path<T>> }[];
+    name: Path<T>;
+    onChange?: (value: FieldPathValue<FieldValues, Path<T>>) => void;
+    control?: Control<T>;
+    parseValue: (value: string) => FieldPathValue<FieldValues, Path<T>>;
+    formatValue: (value: FieldPathValue<FieldValues, Path<T>>) => string;
+  };
 
 export function RadioButtonField<RadioButtonFieldValues extends FieldValues>({
   helperText,
   options,
   label,
   name,
-  parseError,
   required,
   row,
   control,
@@ -59,7 +57,7 @@ export function RadioButtonField<RadioButtonFieldValues extends FieldValues>({
 
   const formHelperText = useMemo(() => {
     if (!!fieldState.error && fieldState.error.message) {
-      return <FormHelperText>{fieldState.error.message}</FormHelperText>;
+      return <FormHelperText error={!!fieldState.error}>{fieldState.error.message}</FormHelperText>;
     }
 
     if (helperText) {

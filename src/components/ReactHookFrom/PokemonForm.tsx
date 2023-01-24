@@ -9,6 +9,7 @@ import { useOnSubmit } from "../../hooks/useOnSubmit";
 import { initialPokemon, Pokemon, validationPokemonSchema } from "../../models/Pokemon";
 import { CircularLoading } from "../CircularLoading";
 import { RenderCount } from "../RenderCount";
+import { CheckboxField } from "./CheckboxField";
 import { InputTextField } from "./InputTextField";
 import { RadioButtonField } from "./RadioButtonField";
 
@@ -25,7 +26,7 @@ export type PokemonFormProps = {
   loading?: boolean;
 };
 export const PokemonForm: FC<PokemonFormProps> = ({ values = initialValues, loading }) => {
-  const { control, handleSubmit, reset } = useForm<FormValues>({
+  const { control, handleSubmit, reset, getValues } = useForm<FormValues>({
     defaultValues: initialValues,
     mode: "all",
     reValidateMode: "onBlur",
@@ -83,7 +84,8 @@ export const PokemonForm: FC<PokemonFormProps> = ({ values = initialValues, load
 
         {fields.map((field, index) => {
           const title = `${index + 1}匹目のポケモン`;
-
+          const isSupportI18n = getValues(`pokemons.${index}.isSupportI18n`);
+          console.log(isSupportI18n);
           return (
             <Box key={index} sx={{ mt: 4 }}>
               <Card>
@@ -101,20 +103,10 @@ export const PokemonForm: FC<PokemonFormProps> = ({ values = initialValues, load
 
                     <InputTextField control={control} label="ID" name={`pokemons.${index}.id`} type="number" />
 
-                    <RadioButtonField
+                    <CheckboxField
                       control={control}
                       label="i18n対応"
                       name={`pokemons.${index}.isSupportI18n`}
-                      options={[
-                        {
-                          label: "対応する",
-                          value: true,
-                        },
-                        {
-                          label: "対応しない",
-                          value: false,
-                        },
-                      ]}
                       row={true}
                     />
                   </Stack>
@@ -126,6 +118,31 @@ export const PokemonForm: FC<PokemonFormProps> = ({ values = initialValues, load
                       name={`pokemons.${index}.name.japanese`}
                       type="text"
                     />
+
+                    {isSupportI18n && (
+                      <>
+                        <InputTextField
+                          control={control}
+                          label="名前（英語）"
+                          name={`pokemons.${index}.name.english`}
+                          type="text"
+                        />
+
+                        <InputTextField
+                          control={control}
+                          label="名前（中国語）"
+                          name={`pokemons.${index}.name.chinese`}
+                          type="text"
+                        />
+
+                        <InputTextField
+                          control={control}
+                          label="名前（フランス語）"
+                          name={`pokemons.${index}.name.french`}
+                          type="text"
+                        />
+                      </>
+                    )}
                   </Stack>
 
                   <Stack alignItems="center" flexDirection="row" gap={2} py={1}>
