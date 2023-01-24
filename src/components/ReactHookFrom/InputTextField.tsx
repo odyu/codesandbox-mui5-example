@@ -1,6 +1,6 @@
 import { TextField, TextFieldProps } from "@mui/material";
 import { useCallback, useState } from "react";
-import { Control, Controller, FieldValues, Path } from "react-hook-form";
+import { Control, Controller, FieldValues, Path, useController } from "react-hook-form";
 
 export type InputTextFieldProps<T extends FieldValues = FieldValues> = Omit<TextFieldProps, "name"> & {
   name: Path<T>;
@@ -13,6 +13,11 @@ export const InputTextField = <TextFieldValues extends FieldValues = FieldValues
   helperText,
   ...props
 }: InputTextFieldProps<TextFieldValues>): JSX.Element => {
+  const { field, fieldState } = useController({
+    control,
+    name,
+  });
+
   const [isFocus, setIsFocus] = useState(false);
 
   const onBlur = useCallback(() => {
@@ -24,29 +29,23 @@ export const InputTextField = <TextFieldValues extends FieldValues = FieldValues
   }, []);
 
   return (
-    <Controller
-      control={control}
+    <TextField
+      {...props}
+      {...field}
+      error={isFocus ? false : !!fieldState.error}
+      helperText={fieldState.error?.message || helperText}
+      inputRef={field.ref}
       name={name}
-      render={({ field, fieldState }) => (
-        <TextField
-          {...props}
-          {...field}
-          error={isFocus ? false : !!fieldState.error}
-          helperText={fieldState.error?.message || helperText}
-          inputRef={field.ref}
-          name={name}
-          onBlur={() => {
-            onBlur();
-            field.onBlur();
-          }}
-          onChange={(event) => {
-            field.onChange(event);
-            props.onChange?.(event);
-          }}
-          onFocus={onFocus}
-          value={field.value || ""}
-        />
-      )}
+      onBlur={() => {
+        onBlur();
+        field.onBlur();
+      }}
+      onChange={(event) => {
+        field.onChange(event);
+        props.onChange?.(event);
+      }}
+      onFocus={onFocus}
+      value={field.value || ""}
     />
   );
 };

@@ -1,113 +1,103 @@
-import { FormControl, FormControlLabel, FormHelperText, FormLabel, Radio, RadioGroup, useTheme } from "@mui/material";
-import { ChangeEvent } from "react";
+import {
+  FormControl,
+  FormControlLabel,
+  FormHelperText,
+  FormLabel,
+  Radio,
+  RadioGroup,
+  RadioGroupProps,
+  TextFieldProps,
+  useTheme,
+} from "@mui/material";
+import { useCallback, useMemo } from "react";
 import { Control, FieldError, Path, useController } from "react-hook-form";
 import { FieldValues } from "react-hook-form/dist/types/fields";
+import { FieldPathValue } from "react-hook-form/dist/types/path/eager";
 
-export type RadioButtonFieldProps<T extends FieldValues> = {
-  options: { label: string; id: string | number }[] | any[];
-  helperText?: string;
+export type RadioButtonFieldProps<T extends FieldValues> = Pick<TextFieldProps, "helperText" | "required" | "label"> & {
+  options: { label: string; value: FieldPathValue<FieldValues, Path<T>> }[];
   name: Path<T>;
-  required?: boolean;
   parseError?: (error: FieldError) => string;
-  label?: string;
-  labelKey?: string;
-  valueKey?: string;
-  type?: "number" | "string";
-  emptyOptionLabel?: "string";
-  onChange?: (value: any) => void;
-  returnObject?: boolean;
+  onChange?: (value: FieldPathValue<FieldValues, Path<T>>) => void;
   row?: boolean;
   control?: Control<T>;
+  parseValue: (value: string) => FieldPathValue<FieldValues, Path<T>>;
+  formatValue: (value: FieldPathValue<FieldValues, Path<T>>) => string;
 };
 
-export function RadioButtonField<TFieldValues extends FieldValues>({
+export function RadioButtonField<RadioButtonFieldValues extends FieldValues>({
   helperText,
   options,
   label,
   name,
   parseError,
-  labelKey = "label",
-  valueKey = "id",
   required,
-  emptyOptionLabel,
-  returnObject,
   row,
   control,
-  type,
-  ...rest
-}: RadioButtonFieldProps<TFieldValues>): JSX.Element {
+  parseValue,
+  formatValue,
+  ...props
+}: RadioButtonFieldProps<RadioButtonFieldValues>): JSX.Element {
   const theme = useTheme();
-  const {
-    field: { value, onChange },
-    fieldState: { error },
-  } = useController({
+
+  const { field, fieldState } = useController({
     control,
     name,
-    rules: required ? { required: "This field is required" } : undefined,
   });
 
-  helperText = error ? (typeof parseError === "function" ? parseError(error) : error.message) : helperText;
-
-  const onRadioChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const radioValue = (event.target as HTMLInputElement).value;
-    const returnValue = returnObject ? options.find((items) => items[valueKey] === radioValue) : radioValue;
-    // setValue(name, returnValue, { shouldValidate: true })
-    onChange(returnValue);
-    if (typeof rest.onChange === "function") {
-      rest.onChange(returnValue);
-    }
-  };
-
-  return (
-    <FormControl error={!!error}>
-      {label && (
-        <FormLabel error={!!error} required={required}>
+  const formLabel = useMemo(() => {
+    if (label) {
+      return (
+        <FormLabel error={!!fieldState.error} required={required}>
           {label}
         </FormLabel>
-      )}
-      <RadioGroup name={name} onChange={onRadioChange} row={row} value={value || ""}>
-        {emptyOptionLabel && (
+      );
+    }
+
+    return null;
+  }, [fieldState.error, label, required]);
+
+  const formHelperText = useMemo(() => {
+    if (!!fieldState.error && fieldState.error.message) {
+      return <FormHelperText>{fieldState.error.message}</FormHelperText>;
+    }
+
+    if (helperText) {
+      return <FormHelperText>{helperText}</FormHelperText>;
+    }
+
+    return null;
+  }, [fieldState.error, helperText]);
+
+  const onChangeRadio = useCallback<Exclude<RadioGroupProps["onChange"], undefined>>(
+    (event, value) => {
+      const parsedValue = parseValue(value);
+      field.onChange?.(parsedValue);
+      props.onChange?.(parsedValue);
+    },
+    [field, parseValue, props]
+  );
+
+  return (
+    <FormControl error={!!fieldState.error}>
+      {formLabel}
+      <RadioGroup name={name} onChange={onChangeRadio} row={row} value={field.value || ""}>
+        {options.map((option, index) => (
           <FormControlLabel
+            {...option}
             control={
               <Radio
-                checked={!value}
+                checked={parseValue(field.value) === option.value}
                 sx={{
-                  color: error ? theme.palette.error.main : undefined,
+                  color: !!fieldState.error ? theme.palette.error.main : undefined,
                 }}
               />
             }
-            label={emptyOptionLabel}
-            value=""
+            key={index}
           />
-        )}
-        {options.map((option: any) => {
-          const optionKey = option[valueKey];
-          if (!optionKey) {
-            console.error(`CheckboxButtonGroup: valueKey ${valueKey} does not exist on option`, option);
-          }
-          let val = returnObject ? value[valueKey] : value;
-          if (type === "number") {
-            val = Number(val);
-          }
-          const isChecked = val === optionKey;
-          return (
-            <FormControlLabel
-              control={
-                <Radio
-                  checked={isChecked}
-                  sx={{
-                    color: error ? theme.palette.error.main : undefined,
-                  }}
-                />
-              }
-              key={optionKey}
-              label={option[labelKey]}
-              value={optionKey}
-            />
-          );
-        })}
+        ))}
       </RadioGroup>
-      {helperText && <FormHelperText>{helperText}</FormHelperText>}
+      {formHelperText}
     </FormControl>
   );
 }
