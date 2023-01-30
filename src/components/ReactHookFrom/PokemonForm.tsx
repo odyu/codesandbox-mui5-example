@@ -2,7 +2,7 @@ import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
 import CloseIcon from "@mui/icons-material/Close";
 import { Box, Button, Card, CardContent, CardHeader, IconButton, Stack } from "@mui/material";
 import React, { FC } from "react";
-import { useFieldArray, useForm, useWatch } from "react-hook-form";
+import { useFieldArray, useForm } from "react-hook-form";
 import * as Yup from "yup";
 
 import { useOnSubmit } from "../../hooks/useOnSubmit";
@@ -38,8 +38,6 @@ export const PokemonForm: FC<PokemonFormProps> = ({ values = initialValues, load
   });
 
   const { onSubmit, isProcessing } = useOnSubmit();
-
-  console.log(useWatch({ control, name: `pokemons.0.isSupportI18n` }));
 
   if (loading) {
     return (
