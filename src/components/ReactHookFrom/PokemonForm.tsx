@@ -83,12 +83,19 @@ export const PokemonForm: FC<PokemonFormProps> = ({ values = initialValues, load
         {fields.map((field, index) => {
           const title = `${index + 1}匹目のポケモン`;
 
+          const onRemove = () => {
+            remove(index);
+          };
+
+          // FIXME: indexにすると画面描画が適切にされない
+          const key = field.id;
+
           return (
-            <Box key={index} sx={{ mt: 4 }}>
+            <Box key={key} sx={{ mt: 4 }}>
               <Card>
                 <CardHeader
                   action={
-                    <IconButton onClick={() => remove(index)} title={`${title}を削除`}>
+                    <IconButton onClick={onRemove} title={`${title}を削除`}>
                       <CloseIcon />
                     </IconButton>
                   }
