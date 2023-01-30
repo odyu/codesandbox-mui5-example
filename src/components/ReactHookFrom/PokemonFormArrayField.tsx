@@ -12,6 +12,7 @@ export type PokemonFormArrayFieldProps = {
   control: Control<FormValues>;
 };
 export const PokemonFormArrayField: FC<PokemonFormArrayFieldProps> = ({ index, control }) => {
+  // FIXME: 入力値を参照するためにはコンポーネントを分割してhook(useWatch)を設定する必要があり
   const isSupportI18n = useWatch({ control, name: `pokemons.${index}.isSupportI18n` });
 
   return (
