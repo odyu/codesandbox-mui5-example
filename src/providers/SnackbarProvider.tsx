@@ -31,7 +31,6 @@ export const SnackbarProvider: FC<PropsWithChildren> = ({ children }) => {
 
   const value = useMemo(() => ({ showSnack }), [showSnack]);
 
-  console.log(first);
   return (
     <SnackbarContext.Provider value={value}>
       {children}
