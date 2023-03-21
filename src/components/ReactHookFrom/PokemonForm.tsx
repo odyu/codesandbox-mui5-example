@@ -55,7 +55,7 @@ export const PokemonForm: FC<PokemonFormProps> = ({ values = initialValues, load
 
           <Button
             disabled={isProcessing}
-            onClick={() => append(initialPokemon, { focusIndex: fields.length, shouldFocus: true })}
+            onClick={() => append(initialPokemon, { focusIndex: fields.length - 1, shouldFocus: true })}
             size="large"
             variant="outlined"
           >

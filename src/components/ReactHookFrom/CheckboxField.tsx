@@ -9,8 +9,8 @@ import {
   FormHelperText,
   useTheme,
 } from "@mui/material";
-import { useMemo } from "react";
-import { Control, Controller, ControllerProps, FieldError, Path, useController } from "react-hook-form";
+import { useCallback, useMemo } from "react";
+import { Control, FieldError, Path, useController } from "react-hook-form";
 import { FieldValues } from "react-hook-form/dist/types/fields";
 
 export type CheckboxFieldProps<T extends FieldValues> = Omit<CheckboxProps, "name"> &
@@ -52,6 +52,22 @@ export function CheckboxField<TFieldValues extends FieldValues>({
     return null;
   }, [fieldState.error, helperText]);
 
+  const sx = useMemo<NonNullable<CheckboxProps["sx"]>>(
+    () => ({
+      color: !!fieldState.error ? theme.palette.error.main : undefined,
+    }),
+    [fieldState.error, theme.palette.error.main]
+  );
+
+  const onChange = useCallback<NonNullable<CheckboxProps["onChange"]>>(
+    (event, checked) => {
+      console.log("CheckboxField.onChange", event, checked);
+      field.onChange(checked);
+      props.onChange?.(event, checked);
+    },
+    [field, props]
+  );
+
   return (
     <FormControl error={!!fieldState.error} required={required}>
       <FormGroup row={row}>
@@ -61,20 +77,15 @@ export function CheckboxField<TFieldValues extends FieldValues>({
               {...props}
               checked={!!field.value}
               color={props.color || "primary"}
-              onChange={(event, checked) => {
-                field.onChange(checked);
-                props.onChange?.(event, checked);
-              }}
-              sx={{
-                color: !!fieldState.error ? theme.palette.error.main : undefined,
-              }}
+              onChange={onChange}
+              sx={sx}
               value={field.value}
             />
           }
           label={label || ""}
         />
       </FormGroup>
-      {formHelperText}
+      {formHelperText || <>&nbsp;</>}
     </FormControl>
   );
 }

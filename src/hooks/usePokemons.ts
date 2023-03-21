@@ -8,11 +8,12 @@ export const usePokemons = (): { pokemons: Pokemon[]; loading: boolean } => {
 
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
 
-  const load = useCallback(async () => {
+  const load = useCallback(() => {
     setLoading(true);
-    await sleep(1000);
-    setPokemons(pokemonData);
-    setLoading(false);
+    sleep(1000).then(() => {
+      setPokemons(pokemonData);
+      setLoading(false);
+    });
   }, []);
 
   useEffect(() => {
