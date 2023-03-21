@@ -2,6 +2,8 @@ import * as Yup from "yup";
 
 export const pokemonTypes = [
   "Bug",
+  "Dark",
+  "Dragon",
   "Electric",
   "Fairy",
   "Fighting",
