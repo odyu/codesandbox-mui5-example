@@ -13,7 +13,7 @@ export const AppRoutes: FC = () => (
       <Route element={<TopPage />} path="/" />
       <Route element={<FormikEmptyPage />} path="/formik/empty" />
       <Route element={<ReactHookFromEmptyPage />} path="/react-hook-form/empty" />
-      <Route element={<ReactHookFromLoadedPage />} path="/react-hook-form/loaded" />
+      <Route element={<ReactHookFromLoadedPage />} path="/react-hook-form/loaded/:limit" />
     </Route>
   </Routes>
 );

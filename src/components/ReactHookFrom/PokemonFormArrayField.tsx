@@ -2,8 +2,10 @@ import { Stack } from "@mui/material";
 import React, { FC } from "react";
 import { Control, useWatch } from "react-hook-form";
 
+import { pokemonTypes } from "../../models/Pokemon";
 import { RenderCount } from "../RenderCount";
 import { CheckboxField } from "./CheckboxField";
+import { ComboCheckboxField } from "./ComboCheckboxField";
 import { InputTextField } from "./InputTextField";
 import { FormValues } from "./PokemonForm";
 
@@ -64,6 +66,8 @@ export const PokemonFormArrayField: FC<PokemonFormArrayFieldProps> = ({ index, c
 
         <InputTextField control={control} label="HP" name={`pokemons.${index}.base.hp`} type="number" />
       </Stack>
+
+      <ComboCheckboxField control={control} label="タイプ" name={`pokemons.${index}.type`} options={pokemonTypes} />
     </>
   );
 };

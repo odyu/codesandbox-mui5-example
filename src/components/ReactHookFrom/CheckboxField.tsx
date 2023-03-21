@@ -9,7 +9,7 @@ import {
   FormHelperText,
   useTheme,
 } from "@mui/material";
-import { useCallback, useMemo } from "react";
+import { useState } from "react";
 import { Control, FieldError, Path, useController } from "react-hook-form";
 import { FieldValues } from "react-hook-form/dist/types/fields";
 
@@ -23,56 +23,30 @@ export type CheckboxFieldProps<T extends FieldValues> = Omit<CheckboxProps, "nam
     control?: Control<T>;
   };
 
-export function CheckboxField<TFieldValues extends FieldValues>({
-  name,
-  required,
-  parseError,
-  label,
+export const CheckboxField = <TFieldValues extends FieldValues = FieldValues>({
   control,
   helperText,
+  label,
+  name,
+  parseError,
+  required,
   row,
   ...props
-}: CheckboxFieldProps<TFieldValues>): JSX.Element {
+}: CheckboxFieldProps<TFieldValues>): JSX.Element => {
   const theme = useTheme();
 
   const {
     field: { ref, ...field },
-    fieldState,
+    fieldState: { error },
   } = useController({
     control,
     name,
   });
 
-  const formHelperText = useMemo(() => {
-    if (!!fieldState.error && fieldState.error.message) {
-      return <FormHelperText error={!!fieldState.error}>{fieldState.error.message}</FormHelperText>;
-    }
-
-    if (helperText) {
-      return <FormHelperText>{helperText}</FormHelperText>;
-    }
-
-    return null;
-  }, [fieldState.error, helperText]);
-
-  const sx = useMemo<NonNullable<CheckboxProps["sx"]>>(
-    () => ({
-      color: !!fieldState.error ? theme.palette.error.main : undefined,
-    }),
-    [fieldState.error, theme.palette.error.main]
-  );
-
-  const onChange = useCallback<NonNullable<CheckboxProps["onChange"]>>(
-    (event, checked) => {
-      console.log("CheckboxField.onChange", event, checked);
-      field.onChange(checked);
-      props.onChange?.(event, checked);
-    },
-    [field, props]
-  );
+  const [isFocus, setIsFocus] = useState(false);
 
   return (
-    <FormControl error={!!fieldState.error} required={required}>
+    <FormControl error={!!error} required={required}>
       <FormGroup row={row}>
         <FormControlLabel
           control={
@@ -81,15 +55,29 @@ export function CheckboxField<TFieldValues extends FieldValues>({
               checked={!!field.value}
               color={props.color || "primary"}
               inputRef={ref}
-              onChange={onChange}
-              sx={sx}
+              onBlur={(event) => {
+                setIsFocus(false);
+                field.onBlur();
+                props.onBlur?.(event);
+              }}
+              onChange={(event, checked) => {
+                field.onChange(checked);
+                props.onChange?.(event, checked);
+              }}
+              onFocus={(event) => {
+                setIsFocus(true);
+                props.onFocus?.(event);
+              }}
+              sx={{
+                color: !!error ? theme.palette.error.main : undefined,
+              }}
               value={field.value}
             />
           }
           label={label || ""}
         />
       </FormGroup>
-      {formHelperText || <>&nbsp;</>}
+      <FormHelperText error={isFocus ? false : !!error}>{error?.message || helperText || <>&nbsp;</>}</FormHelperText>
     </FormControl>
   );
-}
+};

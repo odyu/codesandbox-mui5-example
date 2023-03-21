@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
 
-import { Pokemon, pokemonData } from "../models/Pokemon";
+import { Pokemon, pokemonData200 } from "../models/Pokemon";
 import { sleep } from "../utils/sleep";
 
-export const usePokemons = (): { pokemons: Pokemon[]; loading: boolean } => {
+export const usePokemons = (limit: number = 200): { pokemons: Pokemon[]; loading: boolean } => {
   const [loading, setLoading] = useState(false);
 
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
@@ -11,10 +11,10 @@ export const usePokemons = (): { pokemons: Pokemon[]; loading: boolean } => {
   const load = useCallback(() => {
     setLoading(true);
     sleep(1000).then(() => {
-      setPokemons(pokemonData);
+      setPokemons(pokemonData200.slice(0, limit));
       setLoading(false);
     });
-  }, []);
+  }, [limit]);
 
   useEffect(() => {
     load();

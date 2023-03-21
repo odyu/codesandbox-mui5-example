@@ -1,6 +1,25 @@
 import * as Yup from "yup";
 
-export type PokemonType = "Grass" | "Poison" | "Fire";
+export const pokemonTypes = [
+  "Bug",
+  "Electric",
+  "Fairy",
+  "Fighting",
+  "Fire",
+  "Flying",
+  "Ghost",
+  "Grass",
+  "Ground",
+  "Ice",
+  "Normal",
+  "Poison",
+  "Psychic",
+  "Rock",
+  "Steel",
+  "Water",
+] as const;
+
+type PokemonType = (typeof pokemonTypes)[number];
 
 export type PokemonName = {
   chinese: string;
@@ -24,7 +43,7 @@ export type Pokemon = {
   type: PokemonType[];
 };
 
-export const pokemonData = require("../data/pokemon.json") as unknown as Pokemon[];
+export const pokemonData200 = require("../data/pokemon.json") as unknown as Pokemon[];
 
 export const initialPokemon: Pokemon = {
   base: {
@@ -60,10 +79,7 @@ export const validationPokemonSchema: Yup.SchemaOf<Pokemon> = Yup.object()
       .required(),
     id: Yup.number().required("IDを入力してください").min(1, "IDを入力してください"),
     isSupportI18n: Yup.boolean().required("i18n対応を選択してください"),
-    /**
-     * whenを利用する場合は並列の値しか参照できないみたい
-     * 親の値をどうしても参照した場合はtestを使用する必要がある
-     */
+    // FIXME: クロスバリデーションの場合は `when` を使用するが、objectのnestが多い場合は `test` を使うべき
     name: Yup.mixed()
       .when("isSupportI18n", {
         is: true,
