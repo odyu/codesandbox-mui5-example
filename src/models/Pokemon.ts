@@ -2,15 +2,17 @@ import * as Yup from "yup";
 
 export type PokemonType = "Grass" | "Poison" | "Fire";
 
+export type PokemonName = {
+  chinese: string;
+  english: string;
+  french: string;
+  japanese: string;
+};
+
 export type Pokemon = {
   id: number;
   isSupportI18n: boolean;
-  name: {
-    chinese: string;
-    english: string;
-    french: string;
-    japanese: string;
-  };
+  name: PokemonName;
   base: {
     attack: number;
     defense: number;
@@ -56,25 +58,32 @@ export const validationPokemonSchema: Yup.SchemaOf<Pokemon> = Yup.object()
         speed: Yup.number().required("すばやさを入力してください"),
       })
       .required(),
-    id: Yup.number().required("IDを入力してください"),
+    id: Yup.number().required("IDを入力してください").min(1, "IDを入力してください"),
     isSupportI18n: Yup.boolean().required("i18n対応を選択してください"),
-    name: Yup.object()
-      .shape({
-        chinese: Yup.string().when("isSupportI18n", {
-          is: true,
-          then: Yup.string().required("名前（中国語）を入力してください"),
-        }),
-        english: Yup.string().when("isSupportI18n", {
-          is: true,
-          then: Yup.string().required("名前（英語）を入力してください"),
-        }),
-        french: Yup.string().when("isSupportI18n", {
-          is: true,
-          then: Yup.string().required("名前（フランス語）を入力してください"),
-        }),
-        japanese: Yup.string().required("名前（日本語）を入力してください"),
+    /**
+     * whenを利用する場合は並列の値しか参照できないみたい
+     * 親の値をどうしても参照した場合はtestを使用する必要がある
+     */
+    name: Yup.mixed()
+      .when("isSupportI18n", {
+        is: true,
+        then: Yup.object()
+          .shape({
+            chinese: Yup.string().required("名前（中国語）を入力してください"),
+            english: Yup.string().required("名前（英語）を入力してください"),
+            french: Yup.string().required("名前（フランス語）を入力してください"),
+            japanese: Yup.string().required("名前（日本語）を入力してください"),
+          })
+          .required(),
       })
-      .required(),
+      .when("isSupportI18n", {
+        is: false,
+        then: Yup.object()
+          .shape({
+            japanese: Yup.string().required("名前（日本語）を入力してください"),
+          })
+          .required(),
+      }),
     type: Yup.array()
       .of(Yup.mixed().oneOf(["Grass", "Poison", "Fire"]).required())
       .min(1, "属性を１つ以上選択してください")

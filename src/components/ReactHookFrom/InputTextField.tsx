@@ -62,7 +62,7 @@ export const InputTextField = <TextFieldValues extends FieldValues = FieldValues
       onBlur={onBlur}
       onChange={onChange}
       onFocus={onFocus}
-      value={field.value || ""}
+      value={field.value}
     />
   );
 };

@@ -9,6 +9,7 @@ export const useOnSubmit = () => {
   const { showSnack } = useSnackbar();
 
   const onSubmit = useCallback(async () => {
+    console.log("useOnSubmit");
     setIsProcessing(true);
     await sleep(1000);
     showSnack({

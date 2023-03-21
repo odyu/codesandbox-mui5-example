@@ -18,7 +18,10 @@ export const PokemonFormArrayField: FC<PokemonFormArrayFieldProps> = ({ index, c
   return (
     <>
       <Stack alignItems="center" flexDirection="row" gap={2} py={1}>
-        <RenderCount />
+        <div>
+          <RenderCount />
+          <div>&nbsp;</div>
+        </div>
 
         <InputTextField control={control} label="ID" name={`pokemons.${index}.id`} type="number" />
 
