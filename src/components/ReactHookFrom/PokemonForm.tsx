@@ -19,10 +19,10 @@ const validationSchema: Yup.SchemaOf<FormValues> = Yup.object().shape({
   pokemons: Yup.array().of(validationPokemonSchema).required(),
 });
 
-export type PokemonFormPageProps = {
+export type PokemonFormProps = {
   values?: FormValues;
 };
-export const PokemonFormPage: FC<PokemonFormPageProps> = ({ values = initialValues }) => {
+export const PokemonForm: FC<PokemonFormProps> = ({ values = initialValues }) => {
   const { control, handleSubmit, reset } = useForm<FormValues>({
     defaultValues: initialValues,
     mode: "all",

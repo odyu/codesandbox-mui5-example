@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import React, { FC } from "react";
 
 import { CircularLoading } from "../components/CircularLoading";
-import { PokemonFormPage } from "../components/ReactHookFrom/PokemonFormPage";
+import { PokemonForm } from "../components/ReactHookFrom/PokemonForm";
 import { usePokemons } from "../hooks/usePokemons";
 import { AppLayout } from "../layouts/AppLayout";
 
@@ -19,5 +19,5 @@ export const ReactHookFromLoadedPage: FC = () => {
     );
   }
 
-  return <PokemonFormPage values={{ pokemons }} />;
+  return <PokemonForm values={{ pokemons }} />;
 };

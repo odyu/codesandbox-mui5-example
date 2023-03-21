@@ -5,7 +5,7 @@ import { Control, useWatch } from "react-hook-form";
 import { RenderCount } from "../RenderCount";
 import { CheckboxField } from "./CheckboxField";
 import { InputTextField } from "./InputTextField";
-import { FormValues } from "./PokemonFormPage";
+import { FormValues } from "./PokemonForm";
 
 export type PokemonFormArrayFieldProps = {
   index: number;
