@@ -35,7 +35,10 @@ export function CheckboxField<TFieldValues extends FieldValues>({
 }: CheckboxFieldProps<TFieldValues>): JSX.Element {
   const theme = useTheme();
 
-  const { field, fieldState } = useController({
+  const {
+    field: { ref, ...field },
+    fieldState,
+  } = useController({
     control,
     name,
   });
@@ -77,6 +80,7 @@ export function CheckboxField<TFieldValues extends FieldValues>({
               {...props}
               checked={!!field.value}
               color={props.color || "primary"}
+              inputRef={ref}
               onChange={onChange}
               sx={sx}
               value={field.value}

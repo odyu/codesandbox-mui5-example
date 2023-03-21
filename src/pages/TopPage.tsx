@@ -1,8 +1,10 @@
 import Button from "@mui/material/Button";
 import { FC } from "react";
 
+import { AppLayout } from "../layouts/AppLayout";
+
 export const TopPage: FC = () => (
-  <div>
+  <AppLayout>
     <Button fullWidth={true} href="/react-hook-form/empty">
       ReactHookFrom EmptyPage
     </Button>
@@ -14,5 +16,5 @@ export const TopPage: FC = () => (
     <Button fullWidth={true} href="/formik/empty">
       Formik EmptyPage
     </Button>
-  </div>
+  </AppLayout>
 );

@@ -1,7 +1,7 @@
 import { FC } from "react";
 
-import { PokemonForm } from "../components/ReactHookFrom/PokemonForm";
+import { PokemonFormPage } from "../components/ReactHookFrom/PokemonFormPage";
 
 export const ReactHookFromEmptyPage: FC = () => {
-  return <PokemonForm />;
+  return <PokemonFormPage />;
 };

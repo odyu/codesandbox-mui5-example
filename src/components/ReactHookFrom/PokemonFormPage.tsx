@@ -6,8 +6,8 @@ import { useFieldArray, useForm } from "react-hook-form";
 import * as Yup from "yup";
 
 import { useOnSubmit } from "../../hooks/useOnSubmit";
+import { AppLayout } from "../../layouts/AppLayout";
 import { initialPokemon, Pokemon, validationPokemonSchema } from "../../models/Pokemon";
-import { CircularLoading } from "../CircularLoading";
 import { RenderCount } from "../RenderCount";
 import { PokemonFormArrayField } from "./PokemonFormArrayField";
 
@@ -19,11 +19,10 @@ const validationSchema: Yup.SchemaOf<FormValues> = Yup.object().shape({
   pokemons: Yup.array().of(validationPokemonSchema).required(),
 });
 
-export type PokemonFormProps = {
+export type PokemonFormPageProps = {
   values?: FormValues;
-  loading?: boolean;
 };
-export const PokemonForm: FC<PokemonFormProps> = ({ values = initialValues, loading }) => {
+export const PokemonFormPage: FC<PokemonFormPageProps> = ({ values = initialValues }) => {
   const { control, handleSubmit, reset } = useForm<FormValues>({
     defaultValues: initialValues,
     mode: "all",
@@ -39,23 +38,15 @@ export const PokemonForm: FC<PokemonFormProps> = ({ values = initialValues, load
 
   const { onSubmit, isProcessing } = useOnSubmit();
 
-  if (loading) {
-    return (
-      <Box sx={{ width: "100%" }}>
-        <CircularLoading />
-      </Box>
-    );
-  }
-
   return (
-    <Box sx={{ width: "100%" }}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <AppLayout
+      header={
         <Stack alignItems="center" direction="row" spacing={2}>
           <RenderCount />
 
           <Button
             disabled={isProcessing}
-            onClick={() => append(initialPokemon, { focusIndex: fields.length - 1, shouldFocus: true })}
+            onClick={() => append(initialPokemon, { focusIndex: fields.length, shouldFocus: true })}
             size="large"
             variant="outlined"
           >
@@ -79,7 +70,9 @@ export const PokemonForm: FC<PokemonFormProps> = ({ values = initialValues, load
             保存する
           </Button>
         </Stack>
-
+      }
+    >
+      <form onSubmit={handleSubmit(onSubmit)}>
         {fields.map((field, index) => {
           const title = `${index + 1}匹目のポケモン`;
 
@@ -109,6 +102,6 @@ export const PokemonForm: FC<PokemonFormProps> = ({ values = initialValues, load
           );
         })}
       </form>
-    </Box>
+    </AppLayout>
   );
 };

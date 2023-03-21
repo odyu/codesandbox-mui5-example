@@ -13,7 +13,10 @@ export const InputTextField = <TextFieldValues extends FieldValues = FieldValues
   helperText,
   ...props
 }: InputTextFieldProps<TextFieldValues>): JSX.Element => {
-  const { field, fieldState } = useController({
+  const {
+    field: { ref, ...field },
+    fieldState,
+  } = useController({
     control,
     name,
   });
@@ -54,6 +57,7 @@ export const InputTextField = <TextFieldValues extends FieldValues = FieldValues
       {...field}
       error={isFocus ? false : !!fieldState.error}
       helperText={fieldState.error?.message || helperText || <>&nbsp;</>}
+      inputRef={ref}
       name={name}
       onBlur={onBlur}
       onChange={onChange}

@@ -1,10 +1,23 @@
-import { FC } from "react";
+import { Box } from "@mui/material";
+import React, { FC } from "react";
 
-import { PokemonForm } from "../components/ReactHookFrom/PokemonForm";
+import { CircularLoading } from "../components/CircularLoading";
+import { PokemonFormPage } from "../components/ReactHookFrom/PokemonFormPage";
 import { usePokemons } from "../hooks/usePokemons";
+import { AppLayout } from "../layouts/AppLayout";
 
 export const ReactHookFromLoadedPage: FC = () => {
   const { pokemons, loading } = usePokemons();
 
-  return <PokemonForm loading={loading} values={{ pokemons }} />;
+  if (loading) {
+    return (
+      <AppLayout>
+        <Box sx={{ width: "100%" }}>
+          <CircularLoading />
+        </Box>
+      </AppLayout>
+    );
+  }
+
+  return <PokemonFormPage values={{ pokemons }} />;
 };
