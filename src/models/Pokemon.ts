@@ -1,6 +1,6 @@
 import * as Yup from "yup";
 
-import { FormValues } from "../components/ReactHookFrom/PokemonForm";
+import { FormValues } from "../components/ReactHookForm/PokemonForm";
 
 export const pokemonTypes = [
   "Bug",

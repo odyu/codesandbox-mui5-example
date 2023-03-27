@@ -3,11 +3,11 @@ import React, { FC } from "react";
 import { useParams } from "react-router-dom";
 
 import { CircularLoading } from "../components/CircularLoading";
-import { PokemonForm } from "../components/ReactHookFrom/PokemonForm";
+import { PokemonForm } from "../components/Formik/PokemonForm";
 import { usePokemons } from "../hooks/usePokemons";
 import { AppLayout } from "../layouts/AppLayout";
 
-export const ReactHookFromLoadedPage: FC = () => {
+export const FormikLoadedPage: FC = () => {
   const { limit } = useParams();
   const { pokemons, loading } = usePokemons(Number(limit) || 200);
 

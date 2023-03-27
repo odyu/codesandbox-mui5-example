@@ -30,7 +30,7 @@ export const PokemonForm: FC<PokemonFormProps> = ({ values = initialValues, load
   return (
     <Formik
       enableReinitialize={true}
-      initialValues={initialValues}
+      initialValues={values}
       onSubmit={onSubmit}
       validateOnBlur={true}
       validateOnChange={false}
