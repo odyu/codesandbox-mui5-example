@@ -3,21 +3,16 @@ import CloseIcon from "@mui/icons-material/Close";
 import { Box, Button, Card, CardContent, CardHeader, IconButton, Paper, Stack } from "@mui/material";
 import React, { FC, useEffect } from "react";
 import { useFieldArray, useForm } from "react-hook-form";
-import * as Yup from "yup";
 
 import { useOnSubmit } from "../../hooks/useOnSubmit";
 import { AppLayout } from "../../layouts/AppLayout";
-import { initialPokemon, Pokemon, validationPokemonSchema } from "../../models/Pokemon";
+import { initialPokemon, Pokemon, validationSchema } from "../../models/Pokemon";
 import { RenderCount } from "../RenderCount";
 import { PokemonFormArrayField } from "./PokemonFormArrayField";
 
 export type FormValues = { pokemons: Pokemon[] };
 
 const initialValues: FormValues = { pokemons: [] };
-
-const validationSchema: Yup.SchemaOf<FormValues> = Yup.object().shape({
-  pokemons: Yup.array().of(validationPokemonSchema).required(),
-});
 
 export type PokemonFormProps = {
   values?: FormValues;

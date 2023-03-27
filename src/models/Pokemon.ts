@@ -1,5 +1,7 @@
 import * as Yup from "yup";
 
+import { FormValues } from "../components/ReactHookFrom/PokemonForm";
+
 export const pokemonTypes = [
   "Bug",
   "Dark",
@@ -108,3 +110,7 @@ export const validationPokemonSchema: Yup.SchemaOf<Pokemon> = Yup.object()
       .required("属性を選択してください"),
   })
   .required();
+
+export const validationSchema: Yup.SchemaOf<FormValues> = Yup.object().shape({
+  pokemons: Yup.array().of(validationPokemonSchema).required(),
+});

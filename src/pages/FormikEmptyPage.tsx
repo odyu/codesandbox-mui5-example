@@ -1,3 +1,7 @@
 import { FC } from "react";
 
-export const FormikEmptyPage: FC = () => <div>FormikEmptyPage</div>;
+import { PokemonForm } from "../components/Formik/PokemonForm";
+
+export const FormikEmptyPage: FC = () => {
+  return <PokemonForm />;
+};
