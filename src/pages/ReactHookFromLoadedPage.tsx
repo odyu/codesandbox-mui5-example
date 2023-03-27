@@ -21,5 +21,5 @@ export const ReactHookFromLoadedPage: FC = () => {
     );
   }
 
-  return <PokemonForm values={{ pokemons }} />;
+  return <PokemonForm loading={loading} values={{ pokemons }} />;
 };

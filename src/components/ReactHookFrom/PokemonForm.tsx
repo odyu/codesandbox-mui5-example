@@ -1,7 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
 import CloseIcon from "@mui/icons-material/Close";
 import { Box, Button, Card, CardContent, CardHeader, IconButton, Paper, Stack } from "@mui/material";
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { useFieldArray, useForm } from "react-hook-form";
 import * as Yup from "yup";
 
@@ -21,8 +21,9 @@ const validationSchema: Yup.SchemaOf<FormValues> = Yup.object().shape({
 
 export type PokemonFormProps = {
   values?: FormValues;
+  loading?: boolean;
 };
-export const PokemonForm: FC<PokemonFormProps> = ({ values = initialValues }) => {
+export const PokemonForm: FC<PokemonFormProps> = ({ values = initialValues, loading }) => {
   const {
     control,
     handleSubmit,
@@ -42,6 +43,14 @@ export const PokemonForm: FC<PokemonFormProps> = ({ values = initialValues }) =>
   });
 
   const { onSubmit, isProcessing } = useOnSubmit();
+
+  useEffect(() => {
+    if (loading) return;
+
+    // FIXME: 非同期読み込みのときはresetで値をセットする必要がある
+    // See: https://react-hook-form.com/api/useform/reset/#rules
+    reset(values);
+  }, [loading, reset, values]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
