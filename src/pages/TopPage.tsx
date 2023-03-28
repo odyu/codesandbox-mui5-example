@@ -17,8 +17,8 @@ export const TopPage: FC = () => (
       ReactHookForm Loaded Page (100)
     </Button>
 
-    <Button fullWidth={true} href="/react-hook-form/loaded/200">
-      ReactHookFrom Loaded Page (200)
+    <Button fullWidth={true} href="/react-hook-form/loaded/150">
+      ReactHookFrom Loaded Page (150)
     </Button>
 
     <Button fullWidth={true} href="/formik/empty">
@@ -33,8 +33,8 @@ export const TopPage: FC = () => (
       Formik Loaded Page (100)
     </Button>
 
-    <Button fullWidth={true} href="/formik/loaded/200">
-      Formik Loaded Page (200)
+    <Button fullWidth={true} href="/formik/loaded/150">
+      Formik Loaded Page (150)
     </Button>
   </AppLayout>
 );
