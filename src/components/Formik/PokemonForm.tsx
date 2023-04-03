@@ -9,6 +9,7 @@ import { sleep } from "../../utils/sleep";
 import { RenderCount } from "../RenderCount";
 import { CheckboxField } from "./CheckboxField";
 import { ComboCheckboxField } from "./ComboCheckboxField";
+import { InputTextFastField } from "./InputTextFastField";
 import { InputTextField } from "./InputTextField";
 
 export type FormValues = { pokemons: Pokemon[] };
@@ -75,6 +76,8 @@ export const PokemonForm: FC<PokemonFormProps> = ({ values = initialValues, load
                   </Stack>
                 }
               >
+                <RenderCount />
+
                 {Object.keys(formik.errors).length > 0 && (
                   <Paper component="pre" sx={{ maxHeight: 120, overflowY: "scroll", p: 2 }}>
                     {JSON.stringify(formik.errors, null, "\t")}
@@ -119,19 +122,19 @@ export const PokemonForm: FC<PokemonFormProps> = ({ values = initialValues, load
 
                             {pokemon.isSupportI18n && (
                               <>
-                                <InputTextField
+                                <InputTextFastField
                                   label="名前（英語）"
                                   name={`pokemons.${index}.name.english`}
                                   type="text"
                                 />
 
-                                <InputTextField
+                                <InputTextFastField
                                   label="名前（中国語）"
                                   name={`pokemons.${index}.name.chinese`}
                                   type="text"
                                 />
 
-                                <InputTextField
+                                <InputTextFastField
                                   label="名前（フランス語）"
                                   name={`pokemons.${index}.name.french`}
                                   type="text"

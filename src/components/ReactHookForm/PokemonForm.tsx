@@ -98,6 +98,8 @@ export const PokemonForm: FC<PokemonFormProps> = ({ values = initialValues, load
           </Stack>
         }
       >
+        <RenderCount />
+
         {Object.keys(errors).length > 0 && (
           <Paper component="pre" sx={{ maxHeight: 120, overflowY: "scroll", p: 2 }}>
             {JSON.stringify(errors, null, "\t")}
