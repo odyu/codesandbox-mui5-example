@@ -73,12 +73,12 @@ export const validationPokemonSchema: Yup.SchemaOf<Pokemon> = Yup.object()
   .shape({
     base: Yup.object()
       .shape({
-        attack: Yup.number().required("攻撃力を入力してください"),
-        defense: Yup.number().required("防御力を入力してください"),
-        hp: Yup.number().required("HPを入力してください"),
-        spAttack: Yup.number().required("特殊攻撃力を入力してください"),
-        spDefense: Yup.number().required("特殊防御力を入力してください"),
-        speed: Yup.number().required("すばやさを入力してください"),
+        attack: Yup.number().typeError("数値を入力してください").required("攻撃力を入力してください"),
+        defense: Yup.number().typeError("数値を入力してください").required("防御力を入力してください"),
+        hp: Yup.number().typeError("数値を入力してください").required("HPを入力してください"),
+        spAttack: Yup.number().typeError("数値を入力してください").required("特殊攻撃力を入力してください"),
+        spDefense: Yup.number().typeError("数値を入力してください").required("特殊防御力を入力してください"),
+        speed: Yup.number().typeError("数値を入力してください").required("すばやさを入力してください"),
       })
       .required(),
     id: Yup.number().required("IDを入力してください").min(1, "IDを入力してください"),
