@@ -105,7 +105,11 @@ export const validationPokemonSchema: Yup.SchemaOf<Pokemon> = Yup.object()
           .required(),
       }),
     type: Yup.array()
-      .of(Yup.mixed().oneOf(["Grass", "Poison", "Fire"]).required())
+      .of(
+        Yup.mixed()
+          .oneOf([...pokemonTypes])
+          .required()
+      )
       .min(1, "属性を１つ以上選択してください")
       .required("属性を選択してください"),
   })
